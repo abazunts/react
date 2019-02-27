@@ -7,13 +7,7 @@ const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 
 
-let date = new Date();
 
-const nowDay = date.getDate()
-const nowMonth = date.getMonth()+1
-const nowYear = date.getFullYear()
-const nowHours = date.getHours()
-const nowMinutes = date.getMinutes()
 
 
 
@@ -110,7 +104,17 @@ let store = {
 
     dispatch(action) {
         if (action.type === ADD_POST) {
+            let date = new Date()
+
+            const nowDay = date.getDate()
+            const nowMonth = date.getMonth()+1
+            const nowYear = date.getFullYear()
+            const nowHours = date.getHours()
+            const nowMinutes = date.getMinutes()
+
             let newPost = {
+
+
                 id: this._state.profilePage.posts.length,
                 message: this._state.profilePage.newPostText,
                 likeCount: 0,
