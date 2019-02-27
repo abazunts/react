@@ -14,7 +14,6 @@ const nowMonth = date.getMonth()+1
 const nowYear = date.getFullYear()
 const nowHours = date.getHours()
 const nowMinutes = date.getMinutes()
-const nowSeconds = date.getSeconds()
 
 
 
