@@ -1,0 +1,50 @@
+.footer {
+    background: #383737;
+    margin-top: 15px;
+    padding: 20px;
+}
+
+.menu__item {
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 30px;
+    display: block;
+}
+
+.menu__item a {
+    color: white;
+
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.facebook {
+    background: #3162a2 url("./../../img/FacebookLogo.png") no-repeat center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.twitter {
+    background: #2eb1eb url("./../../img/TwitterLogo.png") no-repeat center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.google {
+    background: #f25c58 url("./../../img/Google.png") no-repeat center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.reserved {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,41 @@
+.post {
+    background: #f2f5f8;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.textarea {
+    width: 95%;
+    height: 100px;
+    resize: none;
+}
+
+.button {
+    width: 20%;
+    display: block;
+    margin-right: auto;
+    background: #24aa98;
+    color: #fff;
+    height: 36px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 7px;
+    margin-left: 15px;
+}
+
+.mypost {
+    display: block;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.test {
+    display: block;
+    margin-left: auto;
+}
+

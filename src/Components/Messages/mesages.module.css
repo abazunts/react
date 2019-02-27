@@ -1,0 +1,71 @@
+.container__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column: 3/5;
+    grid-row: 1/3;
+    border-radius: 5px;
+    height: auto;
+    margin-top: 15px;
+    grid-gap: 10px;
+
+}
+
+.dialogsElement {
+    grid-column: 1;
+    background: #24aa98;
+    border-radius: 5px;
+    height: max-content;
+    padding: 5px 10px 20px;
+}
+
+.dialogsElement a {
+    color: #fff;
+}
+.dialogsElement img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+
+
+}
+
+.messagesElement {
+    grid-column: 2;
+    background: #f2f5f8;
+
+}
+
+.dialogsElement h2 {
+    color: #fff;
+    font-size: 22px;
+    text-align: left;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+
+}
+
+.messageAdd {
+    grid-column: 2;
+
+}
+
+.textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+}
+
+.button {
+    width: 20%;
+    display: block;
+    margin-right: auto;
+    background: #24aa98;
+    color: #fff;
+    height: 36px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 7px;
+}
+
+
+
