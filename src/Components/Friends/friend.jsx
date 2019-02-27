@@ -9,7 +9,7 @@ const Friends = (props) => {
 
     return (
         <div className={s.friends}>
-            <div className={s.online}> Friends online</div>
+            <div className={s.status}> Friends online</div>
             <div className={s.friend}>{friendsElement}</div>
         </div>
     )

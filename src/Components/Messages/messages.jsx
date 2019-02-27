@@ -27,8 +27,8 @@ const Messages = (props) => {
         <div className={s.container__content}>
 
             <div className={s.dialogsElement}>
-                {/*<h2>Dialogs</h2>*/}
-                {dialogsElement}
+                <div className={s.status}>Dialogs</div>
+                <div className={s.friends}>{dialogsElement}</div>
             </div>
             <div className={s.messagesElement}>
                 {messagesElement}

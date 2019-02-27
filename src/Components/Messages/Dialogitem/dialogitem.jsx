@@ -11,7 +11,8 @@ const Messages = (props) => {
         <div className={s.friends}>
 
             <img src={props.avatar}></img>
-            <NavLink to={path}>{props.name}</NavLink>
+            <span className={s.name}><NavLink to={path}>{props.name}</NavLink></span>
+            <span className={s.status}>Status</span>
 
 
         </div>
