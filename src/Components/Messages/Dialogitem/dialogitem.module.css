@@ -1,8 +1,6 @@
 .friends {
     display: grid;
     grid-template-columns: 1fr 2fr;
-
-    border-color: white;
     justify-items: left;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -12,5 +10,10 @@
     padding-left: 5px;
     padding-top: 10px;
 }
+
+.friends a.active{
+    color: #65abd0;
+}
+
 
 

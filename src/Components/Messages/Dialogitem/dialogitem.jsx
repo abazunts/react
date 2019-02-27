@@ -12,6 +12,8 @@ const Messages = (props) => {
 
             <img src={props.avatar}></img>
             <NavLink to={path}>{props.name}</NavLink>
+
+
         </div>
     )
 }

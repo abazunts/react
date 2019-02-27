@@ -27,13 +27,15 @@ const App = (props) => {
                         <Route path='/Profile' render={ () => <Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>  }/>
                         <Route path='/Messages' render={ () => <Messages dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/> }/>
                         <Route path='/Music' render={ () => <Music/> }/>
-                        <Route path='/Friends' render={ () => <Friends/> }/>
+                        {/*<Route path='/Friends' render={ () => <Friends/> }/>*/}
                         <Route path='/Settings' render={ () => <Settings/> }/>
 
 
                         <Profilesmall/>
 
                         <Navbar/>
+
+                        <Friends friendPage={props.state.friendPage}/>
 
                     </div>
                 </section>

@@ -27,7 +27,7 @@ const Messages = (props) => {
         <div className={s.container__content}>
 
             <div className={s.dialogsElement}>
-                <h2>Dialogs</h2>
+                {/*<h2>Dialogs</h2>*/}
                 {dialogsElement}
             </div>
             <div className={s.messagesElement}>

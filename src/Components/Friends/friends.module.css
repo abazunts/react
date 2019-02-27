@@ -1,114 +1,27 @@
-.container__content {
-    grid-column: 3/5;
-    grid-row: 1/3;
-    background: #f2f5f8;
-    margin-top: 0px;
-    border-radius: 5px;
-    height: 65%;
+.friends {
+     grid-column: 2/3;
+     grid-row: 1;
+     background: #f2f5f8;
+     border-radius: 5px;
+     justify-self: right;
+     margin-top: 535px;
+     width: 78%;
+
+ }
+
+.friend  {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
-.profile {
-    background: url("./../../img/Photobigprofile.png") no-repeat;
-    height: 192px;
-    width: 100%;
-    background-size: cover;
-}
-
-.settings__nav {
-    cursor: pointer;
-    background: url("./../../img/SettingsIcon.png") no-repeat;
-    width: 16px;
-    height: 16px;
-    margin-left: auto;
-    border: 0;
-    display: block;
-    margin-right: 25px;
-    margin-top: 10px;
-}
-
-.profile__info {
-    margin-left: 40px;
-    margin-top: 10px;
-    width: 60%;
-    display: block;
-}
-
-.your__name {
-    color: #FFF;
-    font-size: 20px;
+.online {
     text-align: left;
-    padding-top: 20px;
-    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-}
-
-.your__photo {
-    display: block;
-    background: url("./../../img/Myphoto.png") no-repeat center top;
-    width: 100px;
-    height: 100px;
-    padding-top: 100px;
-}
-
-
-.button {
-    width: 130px;
-    display: block;
-    margin-left: auto;
-    margin-right: 25px;
-}
-
-.mail {
-    background: #65abd0 url("./../../img/MessageIcon.png") no-repeat center;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    border: 0px;
-    border-radius: 7px;
-
-}
-.follow {
-    background: #24aa98;
+    font-size: 22px;
     color: #fff;
-    width: 80px;
-    height: 36px;
-    cursor: pointer;
-    border: 0px;
-    border-radius: 7px;
-    margin-left: 10px;
-}
-
-.status {
-    display: block;
-    width: 90%;
-    text-align: left;
-    margin: auto;
-    padding-top: 15px;
-    color: #383737;
-    background: #f2f5f8;
-    font-weight: 600;
-}
-
-.about__count {
-    display: block;
-    margin-right: auto;
-    width: 70%;
-    margin-left: 20px;
-}
-
-.title {
-    margin: 0px;
-    padding: 10px;
-}
-
-.title__hed2 {
-    font-size: 14px;
-    text-align: left;
-}
-
-.title__intro2 {
-    font-weight: 600;
-    color: #383737;
-    font-size: 24px;
-    text-align: left;
+    background: #24aa98;
+    border-radius: 5px;
 }
