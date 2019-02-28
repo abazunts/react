@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './App.css';
 import Header from "./Components/Header/header";
-import Friends from "./Components/Friends/friend";
+import Friends from "./Components/Friends/friends";
 import Navbar from "./Components/Navbar/navbar";
 import Footer from "./Components/Footer/footer";
 import News from "./Components/News/news";
@@ -13,8 +13,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Profilesmall from "./Components/Profilesmall/profilesmall";
 import Profile from "./Components/Profile/profile";
 
-// class App extends Component {
-//     render() {
+
 const App = (props) => {
         return (
             <BrowserRouter>
@@ -30,12 +29,11 @@ const App = (props) => {
                         {/*<Route path='/Friends' render={ () => <Friends/> }/>*/}
                         <Route path='/Settings' render={ () => <Settings/> }/>
 
-
+                        <div className="gridleft">
                         <Profilesmall/>
-
                         <Navbar/>
-
                         <Friends friendPage={props.state.friendPage}/>
+                        </div>
 
                     </div>
                 </section>

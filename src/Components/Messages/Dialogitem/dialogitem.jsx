@@ -12,7 +12,7 @@ const Messages = (props) => {
 
             <img src={props.avatar}></img>
             <span className={s.name}><NavLink to={path}>{props.name}</NavLink></span>
-            <span className={s.status}>Status</span>
+            <span className={s.status}>{props.status}</span>
 
 
         </div>

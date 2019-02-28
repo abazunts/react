@@ -51,6 +51,11 @@ ul, li {
 
 }
 
+.gridleft {
+  grid-column: 2;
+  justify-self: right;
+}
+
 
 
 

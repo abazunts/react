@@ -5,10 +5,12 @@
     border-radius: 5px;
     justify-self: right;
     height: 220px;
-    margin-top: 300px;
+    margin-top: 10px;
 }
 
 .items {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
     color: black;
     margin-right: auto;
     padding: 20px;
@@ -16,10 +18,17 @@
 }
 
 .item {
+    grid-column: 2;
     display: block;
     padding: 3px;
     text-align: left;
 
+}
+
+.img {
+    grid-column: 1;
+    justify-self: right;
+    padding-top: 7px;
 }
 
 .items a {
