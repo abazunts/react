@@ -23,7 +23,7 @@ const MyPost = (props) => {
     return (
         <div className={s.test}>
             <div className={s.post}>
-                <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText}
+                <textarea  onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText}
                           className={s.textarea}/>
                 <button onClick={addPost} className={s.button}>Send</button>
             </div>

@@ -7,11 +7,6 @@ const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 
 
-
-
-
-
-
 let store = {
     _state: {
 
@@ -110,27 +105,27 @@ let store = {
 
     dispatch(action) {
         if (action.type === ADD_POST) {
-            let date = new Date()
+            if (this._state.profilePage.newPostText != "") {
+                let date = new Date()
 
-            const nowDay = date.getDate()
-            const nowMonth = date.getMonth()+1
-            const nowYear = date.getFullYear()
-            const nowHours = date.getHours()
-            const nowMinutes = date.getMinutes()
+                const nowDay = date.getDate()
+                const nowMonth = date.getMonth() + 1
+                const nowYear = date.getFullYear()
+                const nowHours = date.getHours()
+                const nowMinutes = date.getMinutes()
 
-            let newPost = {
-
-
-                id: this._state.profilePage.posts.length,
-                message: this._state.profilePage.newPostText,
-                likeCount: 0,
-                commentCount: 0,
-                shareCount: 0,
-                nowDate: nowDay+"."+nowMonth+"."+nowYear+", "+nowHours+":"+nowMinutes
-            }
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._reRender(this._state);
+                let newPost = {
+                    id: this._state.profilePage.posts.length,
+                    message: this._state.profilePage.newPostText,
+                    likeCount: 0,
+                    commentsCount: 0,
+                    shareCount: 0,
+                    nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes
+                }
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._reRender(this._state);
+            } else alert("Необходимо добавить пост")
 
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
