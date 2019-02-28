@@ -1,7 +1,7 @@
 .post {
     display: grid;
     grid-template-columns: 1fr;
-    background: #f2f5f8;
+    background: #fff;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;

@@ -60,6 +60,30 @@ let store = {
                     nowDate: "26.2.2019, 9:15"
                 }
             ],
+
+            comments: [
+                {
+                    id: "0",
+                    idpost: "1",
+                    message: "he gave my mother such a turn",
+                    likeCount: "15",
+                    commentsCount: "5",
+                    shareCount: "2",
+                    nowDate: "24.2.2019, 11:46"
+
+                },
+
+                {
+                    id: "1",
+                    idpost: "1",
+                    message: "he gave",
+                    likeCount: "15",
+                    commentsCount: "5",
+                    shareCount: "2",
+                    nowDate: "24.2.2019, 11:46"
+
+                }
+            ],
             newPostText: '',
 
             image: <img src="./../img/Myphoto.png"></img>,

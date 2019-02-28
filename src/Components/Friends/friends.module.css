@@ -1,10 +1,11 @@
 .friends {
      grid-column: 2/3;
      grid-row: 1;
-     background: #f2f5f8;
+     background: #fff;
      border-radius: 5px;
      justify-self: right;
      margin-top: 10px;
+    padding-bottom: 10px;
 
  }
 

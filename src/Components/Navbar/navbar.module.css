@@ -1,11 +1,5 @@
 .nav {
-    grid-column: 2/3;
-    grid-row: 1;
-    background: #f2f5f8;
-    border-radius: 5px;
-    justify-self: right;
-    height: 220px;
-    margin-top: 10px;
+      height: 220px;
 }
 
 .items {
@@ -13,8 +7,11 @@
     grid-template-columns: 1fr 7fr;
     color: black;
     margin-right: auto;
-    padding: 20px;
     font-size: 16px;
+    align-items: center;
+    justify-items: end;
+
+
 }
 
 .item {
@@ -22,28 +19,36 @@
     display: block;
     padding: 3px;
     text-align: left;
+    justify-self: left;
+
 
 }
 
-.img {
+.image {
     grid-column: 1;
-    justify-self: right;
-    padding-top: 7px;
+    width: 15px;
+    height: 15px;
+    margin-left: 80px;
+
 }
+
+
 
 .items a {
     color: black;
     font-weight: 600;
-    padding: 5px 100px 5px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .items a.active{
     color: #65abd0;
 }
 
 .items a:hover {
-    background: #65abd0;
+    background: #77bfe5;
     border-radius: 5px;
     text-decoration: none;
     color: white;
+
 
 }

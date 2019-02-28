@@ -46,15 +46,75 @@ ul, li {
 
 .content {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 15px;
 
 }
 
 .gridleft {
-  grid-column: 2;
+  grid-column: 4;
+  grid-row: 2;
   justify-self: right;
 }
+
+.header {
+  grid-column: 1/10;
+  grid-row: 1;
+}
+
+.menu {
+
+  grid-column: 3;
+  grid-row: 2;
+  align-items: end;
+}
+
+.contentblock {
+  grid-column: 4/8;
+  grid-row: 2;
+  width: 100%
+}
+
+.section {
+  background: #f2f5f8;
+}
+
+.logo {
+  grid-column: 3;
+  grid-row: 1;
+
+}
+
+.hlogo {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.search {
+  grid-column: 4/6;
+  grid-row: 1;
+  align-self: center;
+  width: max-content;
+}
+
+.search__text {
+  border: 0px;
+  border-radius: 15px;
+  background: #1a9385;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+
+
+}
+::-webkit-input-placeholder {color:#7fd8cd; opacity:1;}/* webkit */
+::-moz-placeholder          {color:#7fd8cd; opacity:1;}/* Firefox 19+ */
+:-moz-placeholder           {color:#7fd8cd; opacity:1;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#7fd8cd; opacity:1;}/* IE */
+
+
 
 
 
