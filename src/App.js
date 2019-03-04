@@ -10,10 +10,8 @@ import Messages from "./Components/Messages/messages";
 import Music from "./Components/Music/music";
 import Settings from "./Components/Settings/settings";
 import {BrowserRouter, Route} from "react-router-dom";
-import Profilesmall from "./Components/Profilesmall/profilesmall";
 import Profile from "./Components/Profile/profile";
-import s from "./Components/Header/header.module.css";
-import logo from "./img/UI8Logo.png";
+
 
 
 const App = (props) => {
@@ -46,7 +44,7 @@ const App = (props) => {
                             <Navbar/>
                         </div>
 
-                      
+
 
                     </div>
                 </section>

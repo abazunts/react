@@ -1,18 +1,25 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import s from './dialogitem.module.css'
+import News from "../../../App";
+import Message from "../Message/message";
 
 
 const Messages = (props) => {
 
     let path = "/messages/" + props.id;
 
+
+
     return (
         <div className={s.friends}>
 
+
             <img src={props.avatar}></img>
             <span className={s.name}><NavLink to={path}>{props.name}</NavLink></span>
-            <span className={s.status}>{props.status}</span>
+            <span  className={s.status}>{props.status}</span>
+
+
 
 
         </div>

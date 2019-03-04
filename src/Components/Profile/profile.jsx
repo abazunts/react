@@ -13,7 +13,6 @@ const Profile = (props) => {
         <div className={s.container__content}>
             <div className={s.gridleft}>
                 <Profilesmall/>
-                {/*<Profilesmall/>*/}
                 <Friends friendPage={props.friendPage}/>
             </div>
 

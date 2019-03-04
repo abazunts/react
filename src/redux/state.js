@@ -33,9 +33,9 @@ let store = {
 
             ],
             messages: [
-                {id: "0", message: "Hey dude! Wazzap!?"},
-                {id: "1", message: "This sounded a very good reason, and Alice was quite pleased to know..."},
-                {id: "2", message: "Ok man"},
+                {id: "0", check: "0", message: "Hey dude! Wazzap!?"},
+                {id: "1", check: "1", message: "This sounded a very good reason, and Alice was quite pleased to know..."},
+                {id: "2", check: "1", message: "Ok man"},
             ],
 
             newMessage: '',

@@ -20,16 +20,16 @@ const MyPost = (props) => {
         props.dispatch(addPostActionCreator());
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
+    let onPostChange = (e) => {
+        let text = e.target.value;
         let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
     }
     return (
         <div className={s.test}>
             <div className={s.post}>
-                <textarea onChange={onPostChange} ref={newPostElement} value={props.profilePage.newPostText}
-                          className={s.textarea}/>
+                <textarea onChange={onPostChange} value={props.profilePage.newPostText}
+                          className={s.textarea} placeholder='Enter you post'/>
                 <button onClick={addPost} className={s.button}>Send</button>
             </div>
             <div className={s.mypost}>
