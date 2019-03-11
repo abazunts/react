@@ -31,7 +31,7 @@ const Navbar = () => {
                 </div>
                 <img className={s.image} src={FriendsIcon}/>
                 <div className={s.item}>
-                    <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
+                    <NavLink to="/friendsPage" activeClassName={s.active}>Friends</NavLink>
                 </div>
                 <img className={s.image} src={SettingsIcon}/>
                 <div className={s.item}>
