@@ -21,7 +21,6 @@ const App = (props) => {
                     <Header/>
                 </div>
                     <div className="content">
-
                         <div className="contentBlock">
                             <Route path='/News' render={() => <News/>}/>
                             <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage}
@@ -36,10 +35,7 @@ const App = (props) => {
                         <div className="menu">
                             <Navbar/>
                         </div>
-
-
                     </div>
-
                 <Footer/>
             </div>
         </BrowserRouter>
