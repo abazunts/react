@@ -1,6 +1,4 @@
-.container__content {
-
-    border-radius: 5px;
+.containerContent {
 
 }
 
@@ -8,11 +6,9 @@
     display: grid;
     background: url("./../../../img/Photobigprofile.png") no-repeat;
     height: 192px;
-
-
 }
 
-.settings__nav {
+.settingsNav {
     grid-column: 5;
     cursor: pointer;
     background: url("./../../../img/SettingsIcon.png") no-repeat;
@@ -24,15 +20,14 @@
     margin-right: 10px;
     margin-top: 10px;
 }
-.your__photo {
+.yourPhoto {
     grid-column: 1;
     grid-row: 2;
     width: 100px;
     justify-self: right;
-
 }
 
-.your__name {
+.yourName {
     grid-column: 2;
     grid-row: 2;
     text-align: left;
@@ -40,8 +35,6 @@
     font-size: 20px;
     padding-top: 10px;
     padding-left: 10px;
-
-
 }
 
 .mail {
@@ -55,7 +48,6 @@
     border: 0px;
     border-radius: 7px;
     margin-right: 10px;
-
 }
 
 .follow {
@@ -69,7 +61,6 @@
     border: 0px;
     border-radius: 7px;
     margin-right: 10px;
-
 }
 
 .status {
@@ -86,34 +77,34 @@
     padding: 10px;
 }
 
-.titlefollowers {
+.titleFollowers {
     grid-column: 1;
     padding-left: 10px;
 }
 
-.titlefollowing {
+.titleFollowing {
     grid-column: 2;
     padding-left: 10px;
 }
 
-.titlecomments {
+.titleComments {
     grid-column: 3;
     padding-left: 10px;
 }
 
-.titlelikes {
+.titleLikes {
     grid-column: 4;
     padding-left: 10px;
 }
 
 
-.title__hed2 {
+.titleHed {
     font-size: 14px;
     text-align: left;
     color: #42c7b7;
 }
 
-.title__intro2 {
+.titleIntro {
     font-weight: 600;
     color: #383737;
     font-size: 24px;

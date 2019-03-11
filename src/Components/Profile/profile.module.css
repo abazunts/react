@@ -1,17 +1,9 @@
-.container__content {
+.containerContent {
     display: grid;
     grid-template-columns: 1fr 3fr;
     border-radius: 5px;
     height: auto;
     justify-self: left;
-}
-.profilegrid {
-    margin-bottom: 10px;
-    grid-column: 2;
-    background: #fff;
-    padding-bottom: 10px;
-
-
 }
 
 .mypost {
@@ -21,7 +13,7 @@
     margin-bottom: 10px;
 }
 
-.gridleft {
+.gridLeft {
     grid-column: 1;
     grid-row: 1/3;
     margin-right: 10px;

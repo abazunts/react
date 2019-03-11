@@ -1,4 +1,4 @@
-.container__content {
+.containerContent {
     display: grid;
     grid-template-columns: 1fr 3fr;
     border-radius: 5px;
@@ -17,12 +17,11 @@
 .dialogsElement a {
     color: #fff;
 }
+
 .dialogsElement img {
     width: 50px;
     height: 50px;
     border-radius: 30px;
-
-
 }
 
 .messagesElement {
@@ -39,13 +38,10 @@
     text-align: left;
     border-bottom: 1px solid;
     padding-bottom: 10px;
-
 }
 
 .messageAdd {
     grid-column: 2;
-
-
 }
 
 .textarea {
@@ -59,9 +55,6 @@
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-
-
-
 }
 
 .button {
@@ -80,43 +73,20 @@
     margin-bottom: 10px;
 }
 
-.friend  {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.status {
+.title {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-
     font-size: 18px;
     color: #fff;
     background: #24aa98;
     border-radius: 5px;
 }
 
-.friends a {
-    color: #000;
-}
-
-.friends a. {
-    color: red;
-}
-
-.newmessage {
+.newMessage {
     display: grid;
     grid-template-columns:1fr;
-}
-
-.friends {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.mes {
-    grid-column: 2;
 }
 
 

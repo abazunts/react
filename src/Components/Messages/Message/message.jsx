@@ -8,11 +8,11 @@ const Message = (props) => {
 
         if (props.check === "1") {
             return (
-                <div className={s.messageleft}>{props.message}</div>
+                <div className={s.messageLeft}>{props.message}</div>
             )
         } else
             return (
-                <div className={s.messageright}>{props.message}</div>
+                <div className={s.messageRight}>{props.message}</div>
             )
     }
     return (

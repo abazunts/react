@@ -4,7 +4,6 @@
     justify-self: left;
     padding-left: 10px;
     padding-top: 10px;
-
 }
 
 .friends img {
@@ -35,5 +34,4 @@
 .friends a:hover {
     color: #24aa98;
     text-decoration: none;
-
 }

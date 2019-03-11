@@ -4,7 +4,6 @@
     justify-self: left;
     padding-left: 10px;
     padding-top: 10px;
-
 }
 
 .friends img {
@@ -28,10 +27,8 @@
     text-align: left;
 }
 
-.friends a {
+.friends .name a {
     color: #000;
-    text-decoration: none;
-
 }
 
 .friends a:hover {

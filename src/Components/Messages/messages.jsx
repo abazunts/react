@@ -3,7 +3,6 @@ import Message from "./Message/message";
 import Dialogitem from "./Dialogitem/dialogitem";
 import s from "./mesages.module.css"
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
-import Textarea from "../../textarea";
 import {Route} from "react-router-dom";
 
 
@@ -28,33 +27,21 @@ const Messages = (props) => {
 
 
     return (
-        <div className={s.container__content}>
-
+        <div className={s.containerContent}>
             <div className={s.dialogsElement}>
-                <div className={s.status}>Dialogs</div>
-                <div className={s.friends}>{dialogsElement}</div>
+                <div className={s.title}>Dialogs</div>
+                <div>{dialogsElement}</div>
             </div>
-
             <div className={s.messagesElement}>
-
-
                 <Route path={dialogsId} render={() => messagesElement}/>
-
             </div>
             <div className={s.messageAdd}>
-                <div className={s.newmessage}>
-
-
-
+                <div className={s.newMessage}>
                 <textarea onChange={onMessageChange} value={props.dialogsPage.newMessage}
                           className={s.textarea} placeholder='Enter you message...'></textarea>
-
-
                     <button onClick={addMessage} className={s.button}>Send</button>
                 </div>
             </div>
-
-
         </div>
     )
 }

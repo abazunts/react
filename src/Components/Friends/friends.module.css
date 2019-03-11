@@ -5,8 +5,7 @@
      border-radius: 5px;
      justify-self: right;
      margin-top: 10px;
-    padding-bottom: 10px;
-
+     padding-bottom: 10px;
  }
 
 .friend  {
@@ -19,7 +18,6 @@
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-
     font-size: 18px;
     color: #fff;
     background: #24aa98;

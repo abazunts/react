@@ -4,40 +4,15 @@ import logo from "./../../img/UI8Logo.png"
 
 const Header = () => {
     return (
-        <header      className={s.header}>
-
-            <div className={s.hlogo}> <img className={s.logo} src={logo}/></div>
-
-
-
-
-
-            {/*<div className={s.main__header}>*/}
-                {/*<div className={s.container}>*/}
-                    {/*<div className="row justify-content-between">*/}
-                        {/*<div className="col-lg-2">*/}
-                        {/*</div>*/}
-                        {/*<div className="col-lg-2">*/}
-                            {/*<nav className={s.menu}>*/}
-                                {/*<ul className="d-flex">*/}
-                                    {/*<li className={s.menu__item}>*/}
-                                        {/*<a href="#">*/}
-                                            {/*Login*/}
-                                        {/*</a>*/}
-                                    {/*</li>*/}
-                                    {/*<li className={s.menu__item}>*/}
-                                        {/*<a href="#">*/}
-                                            {/*Sign UP*/}
-                                        {/*</a>*/}
-                                    {/*</li>*/}
-                                {/*</ul>*/}
-                            {/*</nav>*/}
-                        {/*</div>*/}
-
-                    {/*</div>*/}
-                {/*</div>*/}
-
+        <header className={s.header}>
+            <div className={s.imgLogo}>
+                <img className={s.logo} src={logo}/>
+            </div>
+            <div className={s.search}>
+                <input className={s.searchText} wrap="off" placeholder="Find"></input>
+            </div>
         </header>
+
     )
 }
 

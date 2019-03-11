@@ -5,8 +5,6 @@
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-
-
 }
 
 .textarea {
@@ -36,6 +34,5 @@
 .test {
     display: grid;
     grid-template-columns: 1fr;
-
 }
 

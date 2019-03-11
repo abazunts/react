@@ -15,32 +15,26 @@ const Navbar = () => {
             <div className={s.items}>
                 <img className={s.image} src={NewsIcon}/>
                 <div className={s.item}>
-
                     <NavLink to='/news' activeClassName={s.active}>News</NavLink>
                 </div>
                 <img className={s.image} src={ProfileIcon}/>
                 <div className={s.item}>
-
                     <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
                 </div>
                 <img className={s.image} src={DialogIcon}/>
                 <div className={s.item}>
-
                     <NavLink to="/messages" activeClassName={s.active}>Messages</NavLink>
                 </div>
                 <img className={s.image} src={MusicIcon}/>
                 <div className={s.item}>
-
                     <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
                 </div>
                 <img className={s.image} src={FriendsIcon}/>
                 <div className={s.item}>
-
                     <NavLink to="/friends" activeClassName={s.active}>Friends</NavLink>
                 </div>
                 <img className={s.image} src={SettingsIcon}/>
                 <div className={s.item}>
-
                     <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
                 </div>
             </div>

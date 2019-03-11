@@ -9,17 +9,14 @@ const Comments = (props) => {
         debugger
         if (props.profilePage[0].posts.id === props.idpost) {
            return (
-               <div>sdcsdc</div>
-
+               <div></div>
            )
         }
-
     }
 
     return (
 
-        <div className={s.mainpost}>
-
+        <div className={s.mainPost}>
             {comments}
         </div>
 

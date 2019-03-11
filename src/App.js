@@ -14,20 +14,15 @@ import Profile from "./Components/Profile/profile";
 
 
 const App = (props) => {
-    debugger
     return (
         <BrowserRouter>
             <div className="App">
-                <section className="section">
+                <div className="header">
+                    <Header/>
+                </div>
                     <div className="content">
-                        <div className="header">
-                            <Header/>
-                        </div>
-                        <div className="search">
-                            <input className={"search__text"} wrap="off" placeholder="Find"></input>
-                        </div>
 
-                        <div className="contentblock">
+                        <div className="contentBlock">
                             <Route path='/News' render={() => <News/>}/>
                             <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage}
                                                                           dispatch={props.dispatch}
@@ -44,7 +39,6 @@ const App = (props) => {
 
 
                     </div>
-                </section>
 
                 <Footer/>
             </div>

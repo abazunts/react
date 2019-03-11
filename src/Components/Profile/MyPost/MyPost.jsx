@@ -29,9 +29,8 @@ const MyPost = (props) => {
                           className={s.textarea} placeholder='Enter you post'/>
                 <button onClick={addPost} className={s.button}>Send</button>
             </div>
-            <div className={s.mypost}>
+            <div>
                 {postsElement}
-
             </div>
         </div>
     )

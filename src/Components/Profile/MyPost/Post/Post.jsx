@@ -20,16 +20,15 @@ const Post = (props) => {
     }
     return (
 
-        <div className={s.mainpost}>
+        <div className={s.mainPost}>
 
-            <img src={Myphoto} className={s.myphoto}/>
-            <div className={s.myname}>
+            <img src={Myphoto} className={s.myPhoto}/>
+            <div className={s.myName}>
                 {props.myName}
-
             </div>
-            <div className={s.date}>{props.nowDate}</div>
-
-
+            <div className={s.date}>
+                {props.nowDate}
+            </div>
             <div className={s.message}>
                 {props.message}
             </div>
@@ -41,9 +40,6 @@ const Post = (props) => {
                 <button className={s.comments}>Comments</button>
                 {props.share}
                 <button className={s.share}>Share</button>
-
-            </div>
-            <div>
 
             </div>
         </div>

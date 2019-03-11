@@ -1,4 +1,4 @@
-.container__profile {
+.containerProfile {
     grid-column: 2;
     grid-row: 1;
     background: #fff;
@@ -6,48 +6,42 @@
     justify-self: right;
     padding-left: 5px;
     height: 270px;
-
 }
 
-.profilesmall {
+.profileSmall {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.edit__profile {
+.editProfile {
     grid-column: 1/4;
     text-align: right;
     padding-top: 5px;
     padding-bottom: 20px;
     padding-right: 10px;
 }
-.edit__profile a {
+
+.editProfile a {
     color: #65abd0;
 }
 
 
-.my__photo {
+.myPhoto {
     grid-column: 1/4;
     display: block;
     background: url("./../../img/Myphoto.png") no-repeat center top;
     width: 100px;
     height: 100px;
     justify-self: center;
-
-
-
 }
 
-.profile__name {
+.profileName {
     grid-column: 1/4;
     color: #383737;
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 10px;
 }
-
-
-
 
 .titles {
     font-size: 14px;
@@ -60,20 +54,19 @@
     font-size: 24px;
 }
 
-.titlephotos {
+.titlePhotos {
     grid-column: 1;
     margin-right: 12px;
     margin-left: 12px;
 }
 
-.titlefollowers {
+.titleFollowers {
     grid-column: 2;
     margin-right: 12px;
     margin-left: 12px;
-
 }
 
-.titlefollowing {
+.titleFollowing {
     grid-column: 3;
     margin-right: 12px;
     margin-left: 12px;
