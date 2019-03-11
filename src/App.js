@@ -11,6 +11,7 @@ import Music from "./Components/Music/music";
 import Settings from "./Components/Settings/settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./Components/Profile/profile";
+import FriendsPage from "./Components/Friends/FriendsPage/friendspage";
 
 
 const App = (props) => {
@@ -29,7 +30,7 @@ const App = (props) => {
                             <Route path='/Messages' render={() => <Messages dialogsPage={props.state.dialogsPage}
                                                                             dispatch={props.dispatch}/>}/>
                             <Route path='/Music' render={() => <Music/>}/>
-                            {/*<Route path='/Friends' render={ () => <Friends/> }/>*/}
+                            <Route path='/FriendsPage' render={ () => <FriendsPage friendPage={props.state.friendPage}/> }/>
                             <Route path='/Settings' render={() => <Settings/>}/>
                         </div>
                         <div className="menu">

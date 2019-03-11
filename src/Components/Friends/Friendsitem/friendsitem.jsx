@@ -4,20 +4,20 @@ import {NavLink} from 'react-router-dom';
 
 
 const FriendsItem = (props) => {
-
+    debugger
     let path = "/" + props.id;
 
-
-
-
-        return (
-            <div className={s.friends}>
+    return (
+        <div>
+            {props.status != "Offline" &&
+                <div className={s.friends}>
                 <img src={props.avatar}></img>
                 <span className={s.name}> <NavLink to={path}> {props.name} </NavLink></span>
                 <span className={s.status}>{props.status}</span>
-
             </div>
-        )
+            }
+        </div>
+    )
 
 }
 
