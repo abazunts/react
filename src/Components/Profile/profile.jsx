@@ -8,6 +8,7 @@ import Friends from "../Friends/friends";
 
 
 const Profile = (props) => {
+
     return (
 
         <div className={s.container__content}>

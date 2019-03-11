@@ -13,13 +13,11 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./Components/Profile/profile";
 
 
-
 const App = (props) => {
+    debugger
     return (
         <BrowserRouter>
             <div className="App">
-
-
                 <section className="section">
                     <div className="content">
                         <div className="header">
@@ -30,20 +28,19 @@ const App = (props) => {
                         </div>
 
                         <div className="contentblock">
-                        <Route path='/News' render={() => <News/>}/>
-                        <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage}
-                                                                      dispatch={props.dispatch}
-                                                                      friendPage={props.state.friendPage}/>}/>
-                        <Route path='/Messages' render={() => <Messages dialogsPage={props.state.dialogsPage}
-                                                                        dispatch={props.dispatch}/>}/>
-                        <Route path='/Music' render={() => <Music/>}/>
-                        {/*<Route path='/Friends' render={ () => <Friends/> }/>*/}
-                        <Route path='/Settings' render={() => <Settings/>}/>
+                            <Route path='/News' render={() => <News/>}/>
+                            <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage}
+                                                                          dispatch={props.dispatch}
+                                                                          friendPage={props.state.friendPage}/>}/>
+                            <Route path='/Messages' render={() => <Messages dialogsPage={props.state.dialogsPage}
+                                                                            dispatch={props.dispatch}/>}/>
+                            <Route path='/Music' render={() => <Music/>}/>
+                            {/*<Route path='/Friends' render={ () => <Friends/> }/>*/}
+                            <Route path='/Settings' render={() => <Settings/>}/>
                         </div>
                         <div className="menu">
                             <Navbar/>
                         </div>
-
 
 
                     </div>

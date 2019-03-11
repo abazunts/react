@@ -1,10 +1,7 @@
 import React from 'react';
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const ADD_LIKE = 'ADD-LIKE';
+import dialogsReducer from './dialogs-reducer'
+import profileReducer from "./profile-reducer";
+import friendReducer from "./friend-reducer";
 
 
 let store = {
@@ -34,7 +31,11 @@ let store = {
             ],
             messages: [
                 {id: "0", check: "0", message: "Hey dude! Wazzap!?"},
-                {id: "1", check: "1", message: "This sounded a very good reason, and Alice was quite pleased to know..."},
+                {
+                    id: "1",
+                    check: "1",
+                    message: "This sounded a very good reason, and Alice was quite pleased to know..."
+                },
                 {id: "2", check: "1", message: "Ok man"},
             ],
 
@@ -116,76 +117,30 @@ let store = {
 
 
     },
-    _reRender() {
+    _callSubscriber() {
         console.log('State changed');
     },
     getState() {
         return this._state;
     },
-    subsribe(observer) {
-        this._reRender = observer;
+    subsсribe(observer) {
+        this._callSubscriber = observer;
     },
 
 
-    dispatch(action) {
-        if (action.type === ADD_POST) {
-            if (this._state.profilePage.newPostText != "") {
-                let date = new Date()
-
-                const nowDay = date.getDate()
-                const nowMonth = date.getMonth() + 1
-                const nowYear = date.getFullYear()
-                const nowHours = date.getHours()
-                const nowMinutes = date.getMinutes()
-
-                let newPost = {
-                    id: this._state.profilePage.posts.length,
-                    message: this._state.profilePage.newPostText,
-                    likeCount: 0,
-                    commentsCount: 0,
-                    shareCount: 0,
-                    nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes
-                }
-                this._state.profilePage.posts.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._reRender(this._state);
-            } else alert("Необходимо добавить пост")
-
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._reRender(this._state);
-
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessage = action.newText;
-            this._reRender(this._state);
-
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: this._state.dialogsPage.messages.length,
-                message: this._state.dialogsPage.newMessage
-            }
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessage = '';
-            this._reRender(this._state);
-        } else if (action.type === ADD_LIKE) {
-            this._state.profilePage.posts[action.id].likeCount++
-            this._reRender(this._state);
-        }
-    }
+    // dispatch(action) {
+    //
+    //     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    //     this._state.profilePage = profileReducer(this._state.profilePage, action);
+    //     this._state.friendPage = friendReducer(this._state.friendPage, action);
+    //
+    //     this._callSubscriber(this._state);
+    //
+    //
+    // }
 
 
 }
-
-export const addPostActionCreator = () =>
-    ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const addMessageActionCreator = () =>
-    ({type: ADD_MESSAGE})
-export const updateNewMessageTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
-export const addLikeActionCreator = (id) =>
-    ({type: ADD_LIKE, id: id})
 
 
 export default store;

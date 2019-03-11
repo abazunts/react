@@ -2,24 +2,21 @@ import React from "react";
 import Message from "./Message/message";
 import Dialogitem from "./Dialogitem/dialogitem";
 import s from "./mesages.module.css"
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 import Textarea from "../../textarea";
 import {Route} from "react-router-dom";
-
 
 
 const Messages = (props) => {
     let dialogsElement = props.dialogsPage.dialogs.map(d => <Dialogitem name={d.name} id={d.id} status={d.status}
                                                                         avatar={d.avatar}/>)
 
-    let dialogsId = props.dialogsPage.dialogs.map((dialogsElement) => <div>{dialogsElement}</div> ) ;
+    let dialogsId = props.dialogsPage.dialogs.map((dialogsElement) => <div>{dialogsElement}</div>);
 
     let messagesElement = props.dialogsPage.messages.map(m => <Message message={m.message} check={m.check}/>)
 
 
-
     let addMessage = () => {
-
         props.dispatch(addMessageActionCreator());
     }
 
@@ -28,8 +25,6 @@ const Messages = (props) => {
         props.dispatch(updateNewMessageTextActionCreator(text));
 
     }
-
-
 
 
     return (
@@ -58,8 +53,6 @@ const Messages = (props) => {
                     <button onClick={addMessage} className={s.button}>Send</button>
                 </div>
             </div>
-
-
 
 
         </div>
