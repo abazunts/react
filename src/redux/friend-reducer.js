@@ -16,6 +16,36 @@ let initialState = {
             id: "2",
             name: "Destiny Higgins",
             avatar: "http://static.hdw.eweb4.com/media/thumbs/1/68/679674.jpg",
+            status: "Offline"
+        },
+        {
+            id: "3",
+            name: "Abigail Simson",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=7a8014ab033e9beef8d2d46cc1245203-l&n=13",
+            status: "Online"
+        },
+        {
+            id: "4",
+            name: "Anna Sven",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=cd1cffb02de7a1fb75c8c631caf2283f&n=13&exp=1",
+            status: "Offline"
+        },
+        {
+            id: "5",
+            name: "Eleanor Harison",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=bfa911ae87c9cac4077d71ecafc5ff3c&n=13",
+            status: "Offline"
+        },
+        {
+            id: "6",
+            name: "Emily Person",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=59eb04cf2522c48bfcc97e2ee9fc059e-l&n=13",
+            status: "Offline"
+        },
+        {
+            id: "7",
+            name: "Grace Hilton",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=e7f19129ffee0a57e6f121db68d01476&n=13&exp=1",
             status: "Online"
         }
     ]
