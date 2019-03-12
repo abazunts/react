@@ -12,7 +12,7 @@ let initialState = {
             likeCount: "11",
             commentsCount: "5",
             shareCount: "2",
-            nowDate: "24.2.2019, 11:46"
+            nowDate: "24.02.2019, 11:46"
         },
         {
             id: "1",
@@ -20,7 +20,7 @@ let initialState = {
             likeCount: "15",
             commentsCount: "9",
             shareCount: "3",
-            nowDate: "26.2.2019, 9:15"
+            nowDate: "26.02.2019, 9:15"
         }
     ],
 
@@ -60,11 +60,23 @@ const profileReducer = (state = initialState, action) => {
             if (state.newPostText != "") {
                 let date = new Date();
 
-                const nowDay = date.getDate();
-                const nowMonth = date.getMonth() + 1;
+                let nowDay = date.getDate();
+                let nowMonth = date.getMonth() + 1;
                 const nowYear = date.getFullYear();
                 const nowHours = date.getHours();
-                const nowMinutes = date.getMinutes();
+                let nowMinutes = date.getMinutes();
+
+                if (nowMonth < 10) {
+                    nowMonth = '0'+nowMonth
+                };
+
+                if (nowDay < 10) {
+                    nowDay = '0'+nowDay;
+                }
+
+                if (nowMinutes < 10) {
+                    nowMinutes = '0'+nowMinutes;
+                }
 
                 let newPost = {
                     id: state.posts.length,

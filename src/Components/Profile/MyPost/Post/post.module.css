@@ -38,6 +38,7 @@
     grid-row: 1;
     color: #000;
     margin-right: auto;
+    padding-bottom: 10px;
 }
 
 .like {
@@ -69,12 +70,15 @@
 
 .date {
     background: url("./../../../../img/ClockIcon.png") no-repeat right;
-    grid-column: 3;
+    grid-column: 2/4;
+    grid-row: 1;
     text-align: right;
-    padding-top: 2.5px;
     font-size: 12px;
     font-weight: 600;
     padding-right: 15px;
+    align-self: center;
+    color: #77bfe5;
+
 }
 
 
