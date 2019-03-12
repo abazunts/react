@@ -13,6 +13,12 @@ const MyPost = (props) => {
     />)
 
 
+    let reversePost = (postsElement) => {
+      return postsElement.reverse();
+
+    }
+
+
     let addPost = () => {
         props.dispatch(addPostActionCreator());
     }
@@ -30,7 +36,7 @@ const MyPost = (props) => {
                 <button onClick={addPost} className={s.button}>Send</button>
             </div>
             <div>
-                {postsElement}
+                {postsElement.reverse()}
             </div>
         </div>
     )
