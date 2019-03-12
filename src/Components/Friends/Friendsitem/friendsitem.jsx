@@ -2,11 +2,8 @@ import React from 'react';
 import s from './friendsitem.module.css';
 import {NavLink} from 'react-router-dom';
 
-
 const FriendsItem = (props) => {
-    debugger
     let path = "/" + props.id;
-
     return (
         <div>
             {props.status != "Offline" &&
@@ -18,8 +15,5 @@ const FriendsItem = (props) => {
             }
         </div>
     )
-
 }
-
-
 export default FriendsItem;

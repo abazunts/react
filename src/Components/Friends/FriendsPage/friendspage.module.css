@@ -1,6 +1,9 @@
 .friends {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background: #fff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 
