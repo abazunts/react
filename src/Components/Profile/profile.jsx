@@ -13,10 +13,10 @@ const Profile = (props) => {
 
         <div className={s.containerContent}>
             <div className={s.gridLeft}>
-                <Profilesmall/>
+                <Profilesmall profilePage={props.profilePage}/>
                 <Friends friendPage={props.friendPage}/>
             </div>
-                <Profileinfo/>
+                <Profileinfo profilePage={props.profilePage}/>
             <div className={s.mypost}>
                 <MyPost profilePage={props.profilePage} dispatch={props.dispatch}/>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import s from './footer.module.css'
 
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <footer className={s.footer}>
             <div className={s.social}>

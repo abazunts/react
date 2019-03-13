@@ -3,38 +3,36 @@ import s from './profileinfo.module.css';
 import Myphoto from "./../../../img/Myphoto.png"
 
 
-const Profileinfo = () => {
+const Profileinfo = (props) => {
     return (
         <div className={s.containerContent}>
             <div className={s.profile}>
                     <button className={s.settingsNav}></button>
                         <img src={Myphoto} className={s.yourPhoto}/>
-                        <span className={s.yourName}>Katherine Faber</span>
+                        <span className={s.yourName}>{props.profilePage.myName}</span>
                         <button className={s.mail}></button>
                         <button className={s.follow}>Follow</button>
             </div>
             <div className={s.status}>
                 <div className={s.stat}>
-                This I have produced as a scantling of Jack’s great eloquence and the force of his
-                reasoning
-                upon such abstruse matters.
+                    {props.profilePage.myProfileData.status}
                 </div>
                     <div className={s.titleFollowers}>
-                        <div className={s.titleHed}>Followers</div>
-                        <div className={s.titleIntro}>68</div>
+                        <div className={s.titleHed}>Videos</div>
+                        <div className={s.titleIntro}>{props.profilePage.myProfileData.videos}</div>
                     </div>
 
                     <div className={s.titleFollowing}>
-                        <div className={s.titleHed}>Following</div>
-                        <div className={s.titleIntro}>93</div>
+                        <div className={s.titleHed}>Reposts</div>
+                        <div className={s.titleIntro}>{props.profilePage.myProfileData.reposts}</div>
                     </div>
                     <div className={s.titleComments}>
                         <div className={s.titleHed}>Comments</div>
-                        <div className={s.titleIntro}>62</div>
+                        <div className={s.titleIntro}>{props.profilePage.myProfileData.comments}</div>
                     </div>
                     <div className={s.titleLikes}>
                         <div className={s.titleHed}>Likes</div>
-                        <div className={s.titleIntro}>2162</div>
+                        <div className={s.titleIntro}>{props.profilePage.myProfileData.likes}</div>
                     </div>
 
             </div>

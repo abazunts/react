@@ -14,28 +14,34 @@ import FriendsPage from "./Components/Friends/FriendsPage/friendspage";
 
 
 const App = (props) => {
+
+    let profilePage = props.state.profilePage;
+    let friendPage = props.state.friendPage;
+    let dialogsPage = props.state.dialogsPage;
+    let dispatch = props.dispatch;
+
     return (
         <BrowserRouter>
             <div className="App">
                 <div className="header">
                     <Header/>
                 </div>
-                    <div className="content">
-                        <div className="contentBlock">
-                            <Route path='/News' render={() => <News/>}/>
-                            <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage}
-                                                                          dispatch={props.dispatch}
-                                                                          friendPage={props.state.friendPage}/>}/>
-                            <Route path='/Messages' render={() => <Messages dialogsPage={props.state.dialogsPage}
-                                                                            dispatch={props.dispatch}/>}/>
-                            <Route path='/Music' render={() => <Music/>}/>
-                            <Route path='/FriendsPage' render={ () => <FriendsPage friendPage={props.state.friendPage}/> }/>
-                            <Route path='/Settings' render={() => <Settings/>}/>
-                        </div>
-                        <div className="menu">
-                            <Navbar/>
-                        </div>
+                <div className="content">
+                    <div className="contentBlock">
+                        <Route path='/News' render={() => <News/>}/>
+                        <Route path='/Profile' render={() => <Profile profilePage={profilePage}
+                                                                      dispatch={dispatch}
+                                                                      friendPage={friendPage}/>}/>
+                        <Route path='/Messages' render={() => <Messages dialogsPage={dialogsPage}
+                                                                        dispatch={dispatch}/>}/>
+                        <Route path='/Music' render={() => <Music/>}/>
+                        <Route path='/FriendsPage' render={() => <FriendsPage friendPage={friendPage}/>}/>
+                        <Route path='/Settings' render={() => <Settings/>}/>
                     </div>
+                    <div className="menu">
+                        <Navbar/>
+                    </div>
+                </div>
                 <Footer/>
             </div>
         </BrowserRouter>

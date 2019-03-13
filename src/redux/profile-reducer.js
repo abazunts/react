@@ -51,7 +51,21 @@ let initialState = {
 
     image: <img src="./../img/Myphoto.png"></img>,
 
-    myName: "Katherine Faber"
+    myName: "Katherine Faber",
+
+    myProfileData: {
+            photos: 56,
+            followers: 32,
+            following: 67,
+            comments: 78,
+            likes: 2467,
+            videos: 34,
+            reposts: 15,
+            status: 'This I have produced as a scantling of Jack’s great eloquence and the force of his\n' +
+                '                reasoning\n' +
+                '                upon such abstruse matters.'
+        }
+
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -67,15 +81,16 @@ const profileReducer = (state = initialState, action) => {
                 let nowMinutes = date.getMinutes();
 
                 if (nowMonth < 10) {
-                    nowMonth = '0'+nowMonth
-                };
+                    nowMonth = '0' + nowMonth
+                }
+                ;
 
                 if (nowDay < 10) {
-                    nowDay = '0'+nowDay;
+                    nowDay = '0' + nowDay;
                 }
 
                 if (nowMinutes < 10) {
-                    nowMinutes = '0'+nowMinutes;
+                    nowMinutes = '0' + nowMinutes;
                 }
 
                 let newPost = {

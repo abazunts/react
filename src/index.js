@@ -8,9 +8,10 @@ import store from "./redux/redux-store";
 
 
 export let rerenderEntireTree = (state) => {
+    let dispatch = store.dispatch.bind(store);
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App state={state} dispatch={dispatch}/>
         </BrowserRouter>, document.getElementById('root'));
 }
 
