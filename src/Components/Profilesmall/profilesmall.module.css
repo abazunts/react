@@ -89,4 +89,12 @@
     font-size: 24px;
 }
 
+.links {
+    color: #42c7b7;
+}
+
+.links:hover {
+    color: #000;
+}
+
 

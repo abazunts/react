@@ -1,6 +1,6 @@
 import React from "react";
 import s from './profileinfo.module.css';
-import Myphoto from "./../../../img/Myphoto.png"
+import Myphoto from "./../../../img/myphoto.png"
 
 
 const Profileinfo = (props) => {
@@ -17,21 +17,28 @@ const Profileinfo = (props) => {
                 <div className={s.stat}>
                     {props.profilePage.myProfileData.status}
                 </div>
-                    <div className={s.titleFollowers}>
-                        <div className={s.titleHed}>Videos</div>
+                    <div   className={s.titleFollowers}>
+
+                        <div className={s.titleHed}><a href='#' className={s.links}>Videos</a></div>
+
                         <div className={s.titleIntro}>{props.profilePage.myProfileData.videos}</div>
                     </div>
-
                     <div className={s.titleFollowing}>
-                        <div className={s.titleHed}>Reposts</div>
+
+                        <div className={s.titleHed}><a href='#' className={s.links} >Reposts</a></div>
+
                         <div className={s.titleIntro}>{props.profilePage.myProfileData.reposts}</div>
                     </div>
                     <div className={s.titleComments}>
-                        <div className={s.titleHed}>Comments</div>
+
+                            <div className={s.titleHed}><a href='#' className={s.links} >Comments</a></div>
+
                         <div className={s.titleIntro}>{props.profilePage.myProfileData.comments}</div>
                     </div>
                     <div className={s.titleLikes}>
-                        <div className={s.titleHed}>Likes</div>
+
+                        <div className={s.titleHed}><a href='#' className={s.links} >Likes</a></div>
+
                         <div className={s.titleIntro}>{props.profilePage.myProfileData.likes}</div>
                     </div>
 
