@@ -6,6 +6,7 @@
     display: grid;
     background: url("./../../../img/Photobigprofile.png") no-repeat;
     height: 192px;
+
 }
 
 .settingsNav {
@@ -24,6 +25,8 @@
     grid-column: 1;
     grid-row: 2;
     width: 100px;
+    height: 100px;
+    border-radius: 50px;
     justify-self: right;
 }
 

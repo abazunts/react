@@ -6,11 +6,11 @@ const Profilesmall = (props) => {
 
         <div className={s.containerProfile}>
             <div className={s.profileSmall}>
+                {/*<div className={s.button}>Edit</div>*/}
                 <div className={s.editProfile}>
                     <a href="#">Edit</a>
                 </div>
-                <div className={s.myPhoto}>
-                </div>
+                <div className={s.myPhoto}></div>
                 <span className={s.profileName}>{props.profilePage.myName}</span>
                 <div className={s.titlePhotos}>
                     <div className={s.titles}> Photos </div>
@@ -24,6 +24,7 @@ const Profilesmall = (props) => {
                     <div className={s.titles}>Following</div>
                     <div className={s.title}>{props.profilePage.myProfileData.following}</div>
                 </div>
+
             </div>
         </div>
 
