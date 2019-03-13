@@ -1,7 +1,7 @@
 import React from "react";
 import s from './profilesmall.module.css'
 
-const ProfileSmall = () => {
+const Profilesmall = () => {
     return (
 
         <div className={s.containerProfile}>
@@ -31,4 +31,4 @@ const ProfileSmall = () => {
     )
 }
 
-export default ProfileSmall;
+export default Profilesmall;
