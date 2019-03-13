@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import './App.css';
 import Header from "./Components/Header/header";
-import Friends from "./Components/Friends/friends";
 import Navbar from "./Components/Navbar/navbar";
 import Footer from "./Components/Footer/footer";
 import News from "./Components/News/news";

@@ -2,7 +2,7 @@ import React from "react";
 import Profileinfo from "./Profileinfo/profileinfo"
 import MyPost from "./MyPost/MyPost";
 import s from "./profile.module.css"
-import ProfileSmall from "../Profilesmall/profileSmall";
+import ProfileSmall from "../Profilesmall/profilesmall";
 import Friends from "../Friends/friends";
 
 
