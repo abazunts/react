@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./post.module.css"
-import Myphoto from './../../../../img/Myphoto.png'
+import Myphoto from '../../../../img/myphoto.png'
 import {addLikeActionCreator} from "../../../../redux/profile-reducer";
 import Comments from "../Comments/comments";
 

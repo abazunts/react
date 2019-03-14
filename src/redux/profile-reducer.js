@@ -49,7 +49,7 @@ let initialState = {
     ],
     newPostText: '',
 
-    image: <img src="./../img/Myphoto.png"></img>,
+    image: <img src="../img/myphoto.png"></img>,
 
     myName: "Katherine Faber",
 
