@@ -18,6 +18,7 @@ const App = (props) => {
     let profilePage = props.state.profilePage;
     let friendPage = props.state.friendPage;
     let dialogsPage = props.state.dialogsPage;
+    let newsPage = props.state.newsPage;
     let dispatch = props.dispatch;
 
     return (
@@ -28,7 +29,9 @@ const App = (props) => {
                 </div>
                 <div className="content">
                     <div className="contentBlock">
-                        <Route path='/News' render={() => <News/>}/>
+                        <Route path='/News'
+                               render={() => <News dispatch={dispatch} profilePage={profilePage} friendPage={friendPage}
+                                                   newsPage={newsPage}/>}/>
                         <Route path='/Profile' render={() => <Profile profilePage={profilePage}
                                                                       dispatch={dispatch}
                                                                       friendPage={friendPage}/>}/>

@@ -32,7 +32,8 @@
     grid-row: 2;
     justify-self: left;
     text-align: left;
-    color: #6b7178;
+    color: #bdbec1;
+    margin-bottom: 10px;
 }
 
 .myName {
@@ -41,6 +42,7 @@
     color: #000;
     margin-right: auto;
     padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .like {
@@ -80,7 +82,45 @@
     padding-right: 15px;
     align-self: center;
     color: #77bfe5;
+}
+
+.rePostTo {
+    color: #24aa98;
+    font-weight: 600;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.rePostTo img {
+    margin-right: 10px;
+}
+
+.attachment {
+    grid-column: 2;
 
 }
+
+
+.attachmentContent {
+    display: grid;
+    grid-template-columns: 1fr
+}
+
+.frame {
+    grid-column: 1;
+    height: 315px;
+    width: 480px;
+    border: 0;
+    justify-self: center;
+}
+
+.attachmentContent img {
+    width: max-content;
+    height: max-content;
+}
+
+
+
+
 
 

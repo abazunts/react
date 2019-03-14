@@ -1,4 +1,5 @@
 import React from "react";
+import Myphoto from '../img/myphoto.png';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -49,7 +50,7 @@ let initialState = {
     ],
     newPostText: '',
 
-    image: <img src="../img/myphoto.png"></img>,
+    avatar: Myphoto,
 
     myName: "Katherine Faber",
 
