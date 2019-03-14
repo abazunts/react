@@ -4,6 +4,7 @@ import pPhoto from '../img/photo.png';
 
 const ADD_NEWS = 'ADD-NEWS';
 const UPDATE_NEW_NEWS_TEXT = 'UPDATE-NEW-NEWS-TEXT';
+const ADD_LIKE_NEWS = 'ADD-LIKE-NEWS';
 
 let initialState = {
     news: [
@@ -97,7 +98,12 @@ const newsReducer = (state = initialState, action) => {
                     likeCount: 0,
                     commentsCount: 0,
                     shareCount: 0,
-                    nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes
+                    nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes,
+                    avatar: "",
+                    name: "",
+                    attachmentVideo: "",
+                    attachmentPhoto: "",
+                    rePostTo: ""
                 }
                 state.news.push(newPost);
                 state.newNewsText = '';
@@ -108,6 +114,9 @@ const newsReducer = (state = initialState, action) => {
         case UPDATE_NEW_NEWS_TEXT:
             state.newNewsText = action.newText;
             return state;
+        case ADD_LIKE_NEWS:
+            state.news[action.id].likeCount++;
+            return state;
         default:
             return state;
     }
@@ -117,6 +126,8 @@ export const addNewsActionCreator = () =>
     ({type: ADD_NEWS})
 export const updateNewNewsTextActionCreator = (text) =>
     ({type: UPDATE_NEW_NEWS_TEXT, newText: text})
+export const addLikeNewsActionCreator = (id) =>
+    ({type: ADD_LIKE_NEWS, id: id})
 
 
 export default newsReducer;

@@ -3,9 +3,15 @@ import s from "./post.module.css"
 import rePostIcon from "../../../../img/RepostIcon.png"
 
 import {addLikeActionCreator} from "../../../../redux/profile-reducer";
+import {addLikeNewsActionCreator} from "../../../../redux/news-reducer";
 
 
 const Post = (props) => {
+
+
+
+
+    let component = null;
 
     let attachmentVideo = props.attachmentVideo;
     let attachmentPhoto = props.attachmentPhoto;
@@ -14,6 +20,24 @@ const Post = (props) => {
         let id = props.id;
         props.dispatch(addLikeActionCreator(id))
     }
+
+    let addLikeNews = () => {
+        let id = props.id;
+        props.dispatch(addLikeNewsActionCreator(id))
+    }
+
+
+
+
+    switch(props.news) {
+        case !undefined:
+            component = addLikeNews;
+            break;
+        case undefined:
+            component = addLike;
+            break;
+    }
+
     return (
 
         <div className={s.mainPost}>
@@ -36,6 +60,8 @@ const Post = (props) => {
                 {props.message}
             </div>
             <div className={s.attachment}>
+
+
                 {attachmentVideo !== "" && attachmentVideo !== undefined &&
                 <div className={s.attachmentContent}>
                     <iframe className={s.frame} src={attachmentVideo}
@@ -52,7 +78,7 @@ const Post = (props) => {
 
             <div className={s.buttons}>
                 {props.like}
-                <button onClick={addLike} className={s.like}>Like</button>
+                <button onClick={component} className={s.like}>Like</button>
                 {props.comments}
                 <button className={s.comments}>Comments</button>
                 {props.share}
