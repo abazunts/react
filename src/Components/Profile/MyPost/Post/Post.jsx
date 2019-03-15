@@ -5,13 +5,14 @@ import rePostIcon from "../../../../img/RepostIcon.png"
 import {addLikeActionCreator} from "../../../../redux/profile-reducer";
 import {addLikeNewsActionCreator} from "../../../../redux/news-reducer";
 import Comments from "../Comments/comments";
+import Addcomments from "../Comments/Addcomments";
 
 
 const Post = (props) => {
     let comments;
     let commentsMessage = props.commentsMessage;
 
-debugger
+
     if(commentsMessage !== undefined)
     {
         comments = commentsMessage.map(c => <Comments id={c.id}
@@ -96,6 +97,8 @@ debugger
             </div>
             <div className={s.commentsBlock}>
                 {comments}
+                {/*<Addcomments/>*/}
+
             </div>
         </div>
     )
