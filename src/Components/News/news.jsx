@@ -28,6 +28,7 @@ const News = (props) => {
                                                    share={p.shareCount} myName={p.name}
                                                    avatar={p.avatar}
                                                    rePostTo={p.rePostTo}
+                                                       myName={p.myName}
                                                    attachmentVideo={p.attachmentVideo}
                                                    attachmentPhoto={p.attachmentPhoto}
                                                    news={newsPage.news}

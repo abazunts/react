@@ -13,6 +13,7 @@ let initialState = {
             message: "She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday.",
             likeCount: "11",
             commentsCount: "5",
+            myName: "Katherine Faber",
             avatar: Myphoto,
             shareCount: "2",
             nowDate: "24.02.2019, 11:46"
@@ -22,6 +23,7 @@ let initialState = {
             message: "He was justified by the event; for the footpath soon after appeared a little wider and more worn, and the tinkle of a small bell gave the knight to understand that he was in the vicinity of some chapel or hermitage.",
             likeCount: "15",
             commentsCount: "9",
+            myName: "Katherine Faber",
             avatar: Myphoto,
             shareCount: "3",
             nowDate: "26.02.2019, 9:15"
