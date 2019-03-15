@@ -1,3 +1,9 @@
+.addPostMain {
+    background: #ffffff;
+
+}
+
+
 .post {
     display: grid;
     grid-template-columns: 1fr;

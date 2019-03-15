@@ -24,7 +24,22 @@ const News = (props) => {
                                                    profilePage={props.profilePage}
     />)
 
+    let postElement = profilePage.posts.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
+                                                   like={p.likeCount} comments={p.commentsCount}
+                                                   share={p.shareCount} myName={p.name}
+                                                   avatar={p.avatar}
+                                                   rePostTo={p.rePostTo}
+                                                   attachmentVideo={p.attachmentVideo}
+                                                   attachmentPhoto={p.attachmentPhoto}
+                                                   news={newsPage.news}
+                                                   commentsMessage={newsPage.comments}
+                                                   dispatch={props.dispatch}
+                                                   profilePage={props.profilePage}
+    />)
 
+
+
+    Array.prototype.push.apply(newsElement,postElement)
 
     return (
         <div className={s.news}>

@@ -18,7 +18,7 @@ const Profile = (props) => {
             </div>
                 <Profileinfo profilePage={props.profilePage}/>
             <div className={s.mypost}>
-                <MyPost profilePage={props.profilePage} dispatch={props.dispatch}/>
+                <MyPost newsPage={props.newsPage} profilePage={props.profilePage} dispatch={props.dispatch}/>
             </div>
         </div>
     )

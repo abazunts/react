@@ -19,7 +19,7 @@ const MyPost = (props) => {
 
     return (
         <div className={s.test}>
-            <AddPost newPostText={newPostText} dispatch={dispatch}/>
+            <AddPost newNewsText={props.newsPage.newNewsText} newPostText={newPostText} dispatch={dispatch}/>
             <div>
                 {postsElement.reverse()}
             </div>

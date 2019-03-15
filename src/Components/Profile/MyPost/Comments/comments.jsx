@@ -19,6 +19,7 @@ const Comments = (props) => {
                 </div>
                 <div className={s.date}>
                     {props.nowDate}
+                    <a href="#">reply</a>
                 </div>
                 <div className={s.buttons}>
                     {props.like}

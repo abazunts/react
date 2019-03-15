@@ -6,7 +6,7 @@ const Addcomments = (props) => {
     return (
         <div className={s.comments}>
             <div className={s.commentBlock}>
-                <textarea lassName={s.textarea} placeholder="What's new?"/>
+                <textarea className={s.textarea}/>
                 <button className={s.button}>Send</button>
             </div>
         </div>

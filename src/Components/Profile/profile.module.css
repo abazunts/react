@@ -9,7 +9,7 @@
 .mypost {
     grid-column: 2;
     grid-template-columns: 1fr;
-    background: #fff;
+    /*background: #fff;*/
     margin-bottom: 10px;
 }
 

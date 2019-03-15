@@ -11,14 +11,13 @@
 
 .commentBlock {
     display: grid;
-    grid-template-columns: 4fr 10fr;
-
+    grid-template-columns: 2fr 6fr 1fr;
 }
 
 
 
 .textarea {
-    grid-column: 2/3;
+    grid-column: 2;
     grid-row: 1;
     resize: none;
     border-bottom-left-radius: 5px;
@@ -29,7 +28,7 @@
 }
 
 .button {
-    grid-column: 2/3;
+    grid-column: 3;
     grid-row: 1;
     width: 80px;
     background: #24aa98;
@@ -37,7 +36,7 @@
     height: 42px;
     cursor: pointer;
     border: 0px;
-    align-self: center;
+    justify-self: right;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }

@@ -34,7 +34,8 @@ const App = (props) => {
                                                    newsPage={newsPage}/>}/>
                         <Route path='/Profile' render={() => <Profile profilePage={profilePage}
                                                                       dispatch={dispatch}
-                                                                      friendPage={friendPage}/>}/>
+                                                                      friendPage={friendPage}
+                                                                      newsPage={newsPage}/>}/>
                         <Route path='/Messages' render={() => <Messages dialogsPage={dialogsPage}
                                                                         dispatch={dispatch}/>}/>
                         <Route path='/Music' render={() => <Music/>}/>

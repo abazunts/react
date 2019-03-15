@@ -97,7 +97,7 @@ const Post = (props) => {
             </div>
             <div className={s.commentsBlock}>
                 {comments}
-                {/*<Addcomments/>*/}
+                <Addcomments/>
 
             </div>
         </div>

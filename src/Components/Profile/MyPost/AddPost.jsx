@@ -30,7 +30,7 @@ const AddPost = (props) => {
 
 
     return (
-        <div>
+        <div className={s.addPostMain}>
             <Route path='/news' render={() => {
                 return (
                     <div className={s.postNews}>
