@@ -3,22 +3,31 @@ import s from "./comments.module.css"
 
 
 
+
 const Comments = (props) => {
+        return (
+            props.idMessage === props.idpost &&
+        <div className={s.comments}>
 
-    let comments = () => {
-        debugger
-        if (props.profilePage[0].posts.id === props.idpost) {
-           return (
-               <div></div>
-           )
-        }
-    }
+            <div className={s.commentBlock}>
+                <img src={props.avatar} className={s.myPhoto}/>
+                <div className={s.myName}>
+                    {props.myName}
+                </div>
+                <div className={s.message}>
+                    {props.message}
+                </div>
+                <div className={s.date}>
+                    {props.nowDate}
+                </div>
+                <div className={s.buttons}>
+                    {props.like}
+                    <button className={s.like}>Like</button>
+                </div>
+            </div>
 
-    return (
-
-        <div className={s.mainPost}>
-            {comments}
         </div>
+
 
 
     )

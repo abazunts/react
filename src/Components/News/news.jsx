@@ -3,6 +3,7 @@ import AddPost from "../Profile/MyPost/AddPost";
 import s from "../News/news.module.css";
 import Friends from "../Friends/friends";
 import Post from "../Profile/MyPost/Post/Post";
+import Comments from "../Profile/MyPost/Comments/comments";
 
 
 const News = (props) => {
@@ -10,7 +11,6 @@ const News = (props) => {
     let dispatch = props.dispatch;
     let friendPage = props.friendPage;
     let newsPage = props.newsPage;
-
     let newsElement = newsPage.news.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
                                                    like={p.likeCount} comments={p.commentsCount}
                                                    share={p.shareCount} myName={p.name}
@@ -18,9 +18,13 @@ const News = (props) => {
                                                    rePostTo={p.rePostTo}
                                                    attachmentVideo={p.attachmentVideo}
                                                    attachmentPhoto={p.attachmentPhoto}
+                                                   news={newsPage.news}
+                                                   commentsMessage={newsPage.comments}
                                                    dispatch={props.dispatch}
                                                    profilePage={props.profilePage}
     />)
+
+
 
     return (
         <div className={s.news}>
@@ -30,7 +34,7 @@ const News = (props) => {
             <div className={s.gridRight}>
                 <Friends friendPage={props.friendPage}/>
             </div>
-            <div className={s.newsPost}>
+            <div className={s.mainGridPost}>
                 {newsElement.reverse()}
             </div>
         </div>

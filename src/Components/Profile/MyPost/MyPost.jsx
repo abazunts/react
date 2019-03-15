@@ -13,6 +13,7 @@ const MyPost = (props) => {
                                                               avatar={props.profilePage.avatar}
                                                               dispatch={props.dispatch}
                                                               profilePage={props.profilePage}
+                                                              commentsMessage={props.profilePage.comments}
     />)
 
 

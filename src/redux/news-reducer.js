@@ -12,7 +12,7 @@ let initialState = {
             id: "0",
             message: "She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday.",
             likeCount: "17",
-            commentsCount: "15",
+            commentsCount: "0",
             shareCount: "2",
             nowDate: "24.02.2019, 11:46",
             avatar: Myphoto,
@@ -25,7 +25,7 @@ let initialState = {
             id: "1",
             message: "Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.",
             likeCount: "15",
-            commentsCount: "9",
+            commentsCount: "2",
             shareCount: "3",
             nowDate: "26.02.2019, 9:15",
             avatar: "https://ns328286.ip-37-187-113.eu/ew/wallpapers/800x480/11016_800x480.jpg",
@@ -38,7 +38,7 @@ let initialState = {
             id: "2",
             message: "He was justified by the event; for the footpath soon after appeared a little wider and more worn, and the tinkle of a small bell gave the knight to understand that he was in the vicinity of some chapel or hermitage.",
             likeCount: "23",
-            commentsCount: "4",
+            commentsCount: "0",
             shareCount: "3",
             nowDate: "26.02.2019, 9:15",
             avatar: "https://im0-tub-kz.yandex.net/i?id=cd1cffb02de7a1fb75c8c631caf2283f&n=13&exp=1",
@@ -51,7 +51,7 @@ let initialState = {
             id: "3",
             message: "",
             likeCount: "45",
-            commentsCount: "10",
+            commentsCount: "1",
             shareCount: "11",
             nowDate: "27.02.2019, 15:17",
             avatar: "https://im0-tub-kz.yandex.net/i?id=e7f19129ffee0a57e6f121db68d01476&n=13&exp=1",
@@ -59,6 +59,40 @@ let initialState = {
             attachmentVideo: "https://www.youtube.com/embed/lFTSiVEQctI",
             attachmentPhoto: "",
             rePostTo: ""
+        }
+    ],
+    comments: [
+        {
+            id: "0",
+            idpost: "1",
+            name: "Katherine Faber",
+            avatar: Myphoto,
+            message: "he gave my mother such a turn",
+            likeCount: "15",
+            nowDate: "28.02.2019, 11:46"
+
+        },
+
+        {
+            id: "1",
+            idpost: "1",
+            name: "Anna Sven",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=cd1cffb02de7a1fb75c8c631caf2283f&n=13&exp=1",
+            message: "he gave",
+            likeCount: "15",
+            nowDate: "01.03.2019, 11:46"
+
+        },
+
+        {
+            id: "2",
+            idpost: "3",
+            name: "Anna Sven",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=cd1cffb02de7a1fb75c8c631caf2283f&n=13&exp=1",
+            message: "Then she usually reads a book or just watches TV. My father is a doctor. He is tall and handsome. He has short dark hair and gray eyes.",
+            likeCount: "15",
+            nowDate: "05.03.2019, 11:46"
+
         }
     ],
 

@@ -28,23 +28,34 @@ let initialState = {
     comments: [
         {
             id: "0",
-            idpost: "1",
+            idpost: "0",
+            name: "Grace Hilton",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=e7f19129ffee0a57e6f121db68d01476&n=13&exp=1",
             message: "he gave my mother such a turn",
             likeCount: "15",
-            commentsCount: "5",
-            shareCount: "2",
-            nowDate: "24.2.2019, 11:46"
+            nowDate: "28.02.2019, 11:46"
 
         },
 
         {
             id: "1",
-            idpost: "1",
+            idpost: "0",
+            name: "Richard Nyman",
+            avatar: "https://ns328286.ip-37-187-113.eu/ew/wallpapers/800x480/11016_800x480.jpg",
             message: "he gave",
             likeCount: "15",
-            commentsCount: "5",
-            shareCount: "2",
-            nowDate: "24.2.2019, 11:46"
+            nowDate: "01.03.2019, 11:46"
+
+        },
+
+        {
+            id: "2",
+            idpost: "1",
+            name: "Anna Sven",
+            avatar: "https://im0-tub-kz.yandex.net/i?id=cd1cffb02de7a1fb75c8c631caf2283f&n=13&exp=1",
+            message: "Then she usually reads a book or just watches TV. My father is a doctor. He is tall and handsome. He has short dark hair and gray eyes.",
+            likeCount: "15",
+            nowDate: "05.03.2019, 11:46"
 
         }
     ],

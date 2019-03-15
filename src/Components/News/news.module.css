@@ -28,3 +28,8 @@
     background-color: #fff;
 }
 
+.mainGridPost {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
