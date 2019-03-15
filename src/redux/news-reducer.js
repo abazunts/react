@@ -1,6 +1,8 @@
 import React from "react";
 import Myphoto from '../img/myphoto.png';
 import pPhoto from '../img/photo.png';
+import rFriendsAvatar from "../img/rfriendsavatar.png";
+import rFriendsPhoto from '../img/rfriendsphoto.png';
 
 const ADD_NEWS = 'ADD-NEWS';
 const UPDATE_NEW_NEWS_TEXT = 'UPDATE-NEW-NEWS-TEXT';
@@ -97,6 +99,20 @@ let initialState = {
     ],
 
     newNewsText: '',
+
+    rFriends: [
+        {
+            avatar: rFriendsAvatar,
+            photo: rFriendsPhoto,
+            name:"Colin Marlow",
+            city: "New York",
+            photoCount:"45",
+            videoCount:"14",
+            songCount:"56",
+            status:"It was some time before he obtained any answer, and the reply, when made, was unpropitious. "
+
+        }
+    ]
 
 
 }

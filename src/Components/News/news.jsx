@@ -1,9 +1,8 @@
 import React from "react";
 import AddPost from "../Profile/MyPost/AddPost";
 import s from "../News/news.module.css";
-import Friends from "../Friends/friends";
 import Post from "../Profile/MyPost/Post/Post";
-import Comments from "../Profile/MyPost/Comments/comments";
+import RFriends from "./Recomended/RFriends";
 
 
 const News = (props) => {
@@ -37,8 +36,6 @@ const News = (props) => {
                                                    profilePage={props.profilePage}
     />)
 
-
-
     Array.prototype.push.apply(newsElement,postElement)
 
     return (
@@ -47,7 +44,8 @@ const News = (props) => {
                 <AddPost newsPage={newsPage} dispatch={dispatch}/>
             </div>
             <div className={s.gridRight}>
-                <Friends friendPage={props.friendPage}/>
+                {/*<Friends friendPage={props.friendPage}/>*/}
+                <RFriends rFriends={newsPage.rFriends}/>
             </div>
             <div className={s.mainGridPost}>
                 {newsElement.reverse()}
