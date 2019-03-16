@@ -5,13 +5,15 @@ const RandomPost = (props) => {
     let newsPage = props.newsPage;
 
     let min = 0;
-    let max = props.newsPage.news.length;
-let random = () => {
-    let rand = min - 0.5 + Math.random() * (max - min)
-    rand = Math.round(rand);
-    return rand;
-}
-let rand = random()
+    let max = newsPage.news.length;
+
+    let random = () => {
+        let rand = min - 0.5 + Math.random() * max;
+        rand = Math.round(rand);
+        return rand;
+    };
+
+    let rand = random()
 
     return (
         <div>
@@ -22,6 +24,9 @@ let rand = random()
                 </div>
                 <div className={s.name}>
                     {newsPage.news[rand].name}
+                </div>
+                <div className={s.date}>
+                    {newsPage.news[rand].nowDate}
                 </div>
             </div>
             <div className={s.randomPost}>
