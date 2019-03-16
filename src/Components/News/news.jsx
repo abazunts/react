@@ -3,6 +3,7 @@ import AddPost from "../Profile/MyPost/AddPost";
 import s from "../News/news.module.css";
 import Post from "../Profile/MyPost/Post/Post";
 import RFriends from "./Recomended/RFriends";
+import RandomPost from "./RandomPost/RandomPost";
 
 
 const News = (props) => {
@@ -47,6 +48,7 @@ const News = (props) => {
             <div className={s.gridRight}>
                 {/*<Friends friendPage={props.friendPage}/>*/}
                 <RFriends rFriends={newsPage.rFriends}/>
+                <RandomPost newsPage={newsPage}/>
             </div>
             <div className={s.mainGridPost}>
                 {newsElement.reverse()}
