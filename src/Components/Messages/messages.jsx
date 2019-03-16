@@ -17,13 +17,20 @@ const Messages = (props) => {
 
     let addMessage = () => {
         props.dispatch(addMessageActionCreator());
+
     }
 
     let onMessageChange = (e) => {
         let text = e.target.value;
         props.dispatch(updateNewMessageTextActionCreator(text));
-
     }
+
+    let  onKeyPressTextMessage = (event) => {
+        let textArea = event.currentTarget;
+        textArea.style.height = 'auto';
+        textArea.style.height = textArea.scrollHeight + 'px';
+    };
+
 
 
     return (
@@ -37,7 +44,7 @@ const Messages = (props) => {
             </div>
             <div className={s.messageAdd}>
                 <div className={s.newMessage}>
-                <textarea onChange={onMessageChange} value={props.dialogsPage.newMessage}
+                <textarea onKeyUp={onKeyPressTextMessage} onChange={onMessageChange} value={props.dialogsPage.newMessage}
                           className={s.textarea} placeholder='Enter you message...'></textarea>
                     <button onClick={addMessage} className={s.button}>Send</button>
                 </div>

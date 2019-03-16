@@ -30,6 +30,10 @@
     padding: 10px;
     min-height: 600px;
     max-height: max-content;
+    overflow-y:scroll;
+    position:relative;
+    height: 500px;
+    width: 600px;
 }
 
 .dialogsElement h2 {
@@ -43,6 +47,8 @@
 .messageAdd {
     grid-column: 2;
 }
+
+
 
 .textarea {
     display: block;
