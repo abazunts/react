@@ -4,14 +4,17 @@ import s from "./mypost.module.css";
 import AddPost from "./AddPost";
 
 
+
+
+
 const MyPost = (props) => {
     let newPostText=props.profilePage.newPostText;
-    let dispatch = props.dispatch;
     let postsElement = props.profilePage.posts.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
                                                               like={p.likeCount} comments={p.commentsCount}
                                                               share={p.shareCount} myName={props.profilePage.myName}
                                                               avatar={props.profilePage.avatar}
-                                                              dispatch={props.dispatch}
+                                                              addLikePost={props.addLikePost}
+                                                              addLikeNews={props.addLikeNews}
                                                               profilePage={props.profilePage}
                                                               commentsMessage={props.profilePage.comments}
     />)
@@ -19,7 +22,12 @@ const MyPost = (props) => {
 
     return (
         <div className={s.test}>
-            <AddPost newNewsText={props.newsPage.newNewsText} newPostText={newPostText} dispatch={dispatch}/>
+            <AddPost newNewsText={props.newsPage.newNewsText} newPostText={newPostText}
+                     addPost={props.addPost}
+                     updateNewPostText={props.onPostChange}
+                     addNews={props.addNews}
+                     updateNewNewsText={props.onNewsChange}
+            />
             <div>
                 {postsElement.reverse()}
             </div>

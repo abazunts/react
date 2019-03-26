@@ -1,32 +1,33 @@
 import React from 'react';
-
 import s from "./myaddpost.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
-import {addNewsActionCreator, updateNewNewsTextActionCreator} from "../../../redux/news-reducer";
 import {Route} from "react-router-dom";
+
+
+
 
 
 const AddPost = (props) => {
 
     let addPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     }
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewPostText(text);
+
     }
 
     let addNews = () => {
-        props.dispatch(addNewsActionCreator());
+        props.addNews();
     }
 
     let onNewsChange = (e) => {
         let text = e.target.value;
-        let action = updateNewNewsTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewNewsText(text);
+
     }
+
 
 
     return (

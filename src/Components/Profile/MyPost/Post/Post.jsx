@@ -1,16 +1,16 @@
 import React from 'react';
 import s from "./post.module.css"
 import rePostIcon from "../../../../img/RepostIcon.png"
-
-import {addLikeActionCreator} from "../../../../redux/profile-reducer";
-import {addLikeNewsActionCreator} from "../../../../redux/news-reducer";
 import Comments from "../Comments/comments";
 import Addcomments from "../Comments/Addcomments";
 
 
 const Post = (props) => {
+    let profilePage = props.profilePage;
+    let newsPage = props.newsPage;
+
     let comments;
-    let commentsMessage = props.commentsMessage;
+    let commentsMessage = profilePage.comments;
 
 
     if(commentsMessage !== undefined)
@@ -30,13 +30,15 @@ const Post = (props) => {
     let likeComponent = null;
     let attachmentVideo = props.attachmentVideo;
     let attachmentPhoto = props.attachmentPhoto;
-    let addLike = () => {
+
+
+    let addLikePost = () => {
         let id = props.id;
-        props.dispatch(addLikeActionCreator(id))
+        props.addLikePost(id);
     }
     let addLikeNews = () => {
         let id = props.id;
-        props.dispatch(addLikeNewsActionCreator(id))
+        props.addLikeNews(id);
     }
 
 
@@ -48,7 +50,7 @@ const Post = (props) => {
             likeComponent = addLikeNews;
             break;
         case 0:
-            likeComponent = addLike;
+            likeComponent = addLikePost;
             break;
         default:
             likeComponent = null;

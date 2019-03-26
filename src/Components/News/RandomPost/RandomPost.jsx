@@ -1,23 +1,20 @@
 import React from "react";
 import s from "./randompost.module.css";
 
+
+const random = (news) => {
+    let min = 0;
+    let max = news.length;
+    let rand = min - 0.5 + Math.random() * max;
+    rand = Math.round(rand);
+    return rand;
+}
+
 const RandomPost = (props) => {
     let newsPage = props.newsPage;
-
-    let min = 0;
-    let max = newsPage.news.length;
-
-    let random = () => {
-        let rand = min - 0.5 + Math.random() * max;
-        rand = Math.round(rand);
-        return rand;
-    };
-
-    let rand = random()
-
+    let rand = random(newsPage.news)
     return (
         <div>
-
             <div className={s.headerPost}>
                 <div className={s.avatar}>
                     <img src={newsPage.news[rand].avatar}/>

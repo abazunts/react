@@ -1,10 +1,9 @@
 import React from "react";
 import Profileinfo from "./Profileinfo/profileinfo"
-import MyPost from "./MyPost/MyPost";
 import s from "./profile.module.css"
 import Friends from "../Friends/friends";
 import Profilesmall from "../Profilesmall/profilesmall";
-
+import MyPostContainer from "./MyPost/MyPostContainer";
 
 
 const Profile = (props) => {
@@ -16,9 +15,9 @@ const Profile = (props) => {
                 <Profilesmall profilePage={props.profilePage}/>
                 <Friends friendPage={props.friendPage}/>
             </div>
-                <Profileinfo profilePage={props.profilePage}/>
+            <Profileinfo profilePage={props.profilePage}/>
             <div className={s.mypost}>
-                <MyPost newsPage={props.newsPage} profilePage={props.profilePage} dispatch={props.dispatch}/>
+                <MyPostContainer store={props.store}/>
             </div>
         </div>
     )

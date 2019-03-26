@@ -13,6 +13,7 @@ import Profile from "./Components/Profile/profile";
 import FriendsPage from "./Components/Friends/FriendsPage/friendspage";
 
 
+
 const App = (props) => {
 
     let profilePage = props.state.profilePage;
@@ -35,7 +36,8 @@ const App = (props) => {
                         <Route path='/Profile' render={() => <Profile profilePage={profilePage}
                                                                       dispatch={dispatch}
                                                                       friendPage={friendPage}
-                                                                      newsPage={newsPage}/>}/>
+                                                                      newsPage={newsPage}
+                                                                      store={props.store}/>}/>
                         <Route path='/Messages' render={() => <Messages dialogsPage={dialogsPage}
                                                                         dispatch={dispatch}/>}/>
                         <Route path='/Music' render={() => <Music/>}/>
