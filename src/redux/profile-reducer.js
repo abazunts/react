@@ -121,18 +121,19 @@ const profileReducer = (state = initialState, action) => {
                 }
                 state.posts.push(newPost);
                 state.newPostText = '';
-                return state;
+                return Object.assign({}, state,)
             } else alert("Необходимо добавить пост");
 
 
         case UPDATE_NEW_POST_TEXT:
             state.newPostText = action.newText;
-            return state;
+            return Object.assign({}, state,)
         case ADD_LIKE:
             state.posts[action.id].likeCount++;
-            return state;
+            return Object.assign({}, state,)
         default:
-            return state;
+            return state
+
     }
 }
 

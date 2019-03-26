@@ -3,10 +3,6 @@ import Post from "./Post/Post";
 import s from "./mypost.module.css";
 import AddPost from "./AddPost";
 
-
-
-
-
 const MyPost = (props) => {
     let newPostText=props.profilePage.newPostText;
     let postsElement = props.profilePage.posts.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
@@ -18,8 +14,6 @@ const MyPost = (props) => {
                                                               profilePage={props.profilePage}
                                                               commentsMessage={props.profilePage.comments}
     />)
-
-
     return (
         <div className={s.test}>
             <AddPost newNewsText={props.newsPage.newNewsText} newPostText={newPostText}

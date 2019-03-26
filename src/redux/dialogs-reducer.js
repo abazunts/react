@@ -24,13 +24,21 @@ let initialState = {
 
     ],
     messages: [
-        {id: "0", check: "0", message: "Hey dude! Wazzap!?"},
+        {
+            id: "0",
+            check: "0",
+            message: "Hey dude! Wazzap!?"
+        },
         {
             id: "1",
             check: "1",
             message: "This sounded a very good reason, and Alice was quite pleased to know..."
         },
-        {id: "2", check: "1", message: "Ok man"},
+        {
+            id: "2",
+            check: "1",
+            message: "Ok man"
+        },
     ],
 
     newMessage: '',
@@ -38,10 +46,11 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
+    
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
             state.newMessage = action.newText;
-            return state;
+            return Object.assign({}, state,)
         case ADD_MESSAGE:
             let newMessage = {
                 id: state.messages.length,
@@ -49,9 +58,9 @@ const dialogsReducer = (state = initialState, action) => {
             }
             state.messages.push(newMessage);
             state.newMessage = '';
-            return state;
+            return Object.assign({}, state,)
         default:
-            return state;
+            return state
     }
 }
 

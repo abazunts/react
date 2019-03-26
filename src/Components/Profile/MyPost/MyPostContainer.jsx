@@ -5,54 +5,30 @@ import {
     addPostActionCreator,
     updateNewPostTextActionCreator
 } from "../../../redux/profile-reducer";
-import {
-    addLikeNewsActionCreator,
-    addNewsActionCreator,
-    updateNewNewsTextActionCreator
-} from "../../../redux/news-reducer";
-import store from "../../../redux/redux-store";
+import {connect} from "react-redux";
 
 
-const MyPostContainer = (props) => {
-
-    let state = props.store.getState();
-    let dispatch = store.dispatch.bind(store);
-
-    let addLikePost = (id) => {
-        dispatch(addLikeActionCreator(id))
+const mapStateToProps = (state) => {
+    return {
+        newsPage: state.newsPage,
+        profilePage: state.profilePage
     }
-    let addLikeNews = (id) => {
-        dispatch(addLikeNewsActionCreator(id))
-    }
-
-    let addPost = () => {
-        dispatch(addPostActionCreator());
-    }
-
-    let onPostChange = (text) => {
-        let action = updateNewPostTextActionCreator(text);
-        dispatch(action);
-    }
-
-    let addNews = () => {
-        dispatch(addNewsActionCreator());
-    }
-
-    let onNewsChange = (text) => {
-        let action = updateNewNewsTextActionCreator(text);
-        dispatch(action);
-    }
-
-    return (
-        <MyPost addLikePost={addLikePost}
-                addLikeNews={addLikeNews}
-                addPost={addPost}
-                onPostChange={onPostChange}
-                addNews={addNews}
-                onNewsChange={onNewsChange}
-                newsPage={state.newsPage}
-                profilePage={state.profilePage}/>
-    )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addLikePost: (id) => {
+            dispatch(addLikeActionCreator(id))
+        },
+        addPost: () => {
+            dispatch(addPostActionCreator())
+        },
+        onPostChange: (text) => {
+            dispatch(updateNewPostTextActionCreator(text))
+        }
+    }
+}
+
+const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPost)
 
 export default MyPostContainer;

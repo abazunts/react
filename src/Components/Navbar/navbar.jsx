@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className={s.items}>
                 <img className={s.image} src={NewsIcon}/>
                 <div className={s.item}>
-                    <NavLink to='/news' activeClassName={s.active}>News</NavLink>
+                    <NavLink exact to='/' activeClassName={s.active}>News</NavLink>
                 </div>
                 <img className={s.image} src={ProfileIcon}/>
                 <div className={s.item}>

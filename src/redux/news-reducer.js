@@ -157,18 +157,19 @@ const newsReducer = (state = initialState, action) => {
                 }
                 state.news.push(newPost);
                 state.newNewsText = '';
-                return state;
+                return Object.assign({}, state,)
             } else alert("Необходимо добавить пост");
 
 
         case UPDATE_NEW_NEWS_TEXT:
             state.newNewsText = action.newText;
-            return state;
+            return Object.assign({}, state,)
         case ADD_LIKE_NEWS:
             state.news[action.id].likeCount++;
-            return state;
+            return Object.assign({}, state,)
         default:
-            return state;
+            return state
+
     }
 }
 

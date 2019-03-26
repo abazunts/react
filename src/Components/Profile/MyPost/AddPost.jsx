@@ -32,7 +32,7 @@ const AddPost = (props) => {
 
     return (
         <div className={s.addPostMain}>
-            <Route path='/news' render={() => {
+            <Route exact path='/' render={() => {
                 return (
                     <div className={s.postNews}>
                     <textarea onChange={onNewsChange} value={props.newsPage.newNewsText}

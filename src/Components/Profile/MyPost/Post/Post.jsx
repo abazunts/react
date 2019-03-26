@@ -6,8 +6,8 @@ import Addcomments from "../Comments/Addcomments";
 
 
 const Post = (props) => {
+    debugger
     let profilePage = props.profilePage;
-    let newsPage = props.newsPage;
 
     let comments;
     let commentsMessage = profilePage.comments;

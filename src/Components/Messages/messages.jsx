@@ -2,35 +2,32 @@ import React from "react";
 import Message from "./Message/message";
 import Dialogitem from "./Dialogitem/dialogitem";
 import s from "./mesages.module.css"
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 import {Route} from "react-router-dom";
 
 
-const Messages = (props) => {
-    let dialogsElement = props.dialogsPage.dialogs.map(d => <Dialogitem name={d.name} id={d.id} status={d.status}
+const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
+    let dialogsElement = dialogs.map(d => <Dialogitem name={d.name} id={d.id} status={d.status}
                                                                         avatar={d.avatar}/>)
 
-    let dialogsId = props.dialogsPage.dialogs.map((dialogsElement) => <div>{dialogsElement}</div>);
+    let dialogsId = dialogs.map((dialogsElement) => <div>{dialogsElement}</div>);
 
-    let messagesElement = props.dialogsPage.messages.map(m => <Message message={m.message} check={m.check}/>)
+    let messagesElement = messages.map(m => <Message message={m.message} check={m.check}/>)
 
-
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
-
-    }
 
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageTextActionCreator(text));
+        props.onMessageChange(text);
     }
 
-    let  onKeyPressTextMessage = (event) => {
+    let addMessage = () => {
+        props.addMessage();
+    }
+
+    let onKeyPressTextMessage = (event) => {
         let textArea = event.currentTarget;
         textArea.style.height = 'auto';
         textArea.style.height = textArea.scrollHeight + 'px';
     };
-
 
 
     return (
@@ -44,7 +41,8 @@ const Messages = (props) => {
             </div>
             <div className={s.messageAdd}>
                 <div className={s.newMessage}>
-                <textarea onKeyUp={onKeyPressTextMessage} onChange={onMessageChange} value={props.dialogsPage.newMessage}
+                <textarea onKeyUp={onKeyPressTextMessage} onChange={onMessageChange}
+                          value={newMessage}
                           className={s.textarea} placeholder='Enter you message...'></textarea>
                     <button onClick={addMessage} className={s.button}>Send</button>
                 </div>

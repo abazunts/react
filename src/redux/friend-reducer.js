@@ -52,7 +52,7 @@ let initialState = {
 }
 
 const friendReducer = (state = initialState, action) => {
-    return state;
+    return Object.assign({}, state,)
 }
 
 export default friendReducer;
