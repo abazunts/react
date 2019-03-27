@@ -118,6 +118,7 @@ let initialState = {
 }
 
 const newsReducer = (state = initialState, action) => {
+    Object.assign({}, state,)
     switch (action.type) {
         case ADD_NEWS:
             if (state.newNewsText != "") {
@@ -157,16 +158,16 @@ const newsReducer = (state = initialState, action) => {
                 }
                 state.news.push(newPost);
                 state.newNewsText = '';
-                return Object.assign({}, state,)
+                return state
             } else alert("Необходимо добавить пост");
 
 
         case UPDATE_NEW_NEWS_TEXT:
             state.newNewsText = action.newText;
-            return Object.assign({}, state,)
+            return state
         case ADD_LIKE_NEWS:
             state.news[action.id].likeCount++;
-            return Object.assign({}, state,)
+            return state
         default:
             return state
 
