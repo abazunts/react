@@ -1,6 +1,7 @@
 import React from "react";
 import RFriendsItem from "./RFriendsItem/RFriendsItem";
 import s from "./rfriends.module.css"
+import PropTypes from 'prop-types'
 
 
 const RFriends = (props) => {
@@ -21,6 +22,10 @@ const RFriends = (props) => {
             {rFriendsElement}
         </div>
     )
+}
+
+RFriends.propTypes = {
+    rFriends: PropTypes.array.isRequired,
 }
 
 export default RFriends;

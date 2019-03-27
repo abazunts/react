@@ -6,7 +6,7 @@ import Addcomments from "../Comments/Addcomments";
 
 
 const Post = (props) => {
-    debugger
+
     let profilePage = props.profilePage;
 
     let comments;
@@ -33,12 +33,10 @@ const Post = (props) => {
 
 
     let addLikePost = () => {
-        let id = props.id;
-        props.addLikePost(id);
+        props.addLikePost(props.id);
     }
     let addLikeNews = () => {
-        let id = props.id;
-        props.addLikeNews(id);
+        props.addLikeNews(props.id);
     }
 
 

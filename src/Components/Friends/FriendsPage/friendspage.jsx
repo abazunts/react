@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./friendspage.module.css";
 import FriendsPageItem from "./FriendsPageItem/friendsPageItem";
-
+import PropTypes from 'prop-types'
 
 
 
@@ -21,6 +21,13 @@ const FriendsPage = (props) => {
             <div className={s.friend}>{friendsElement[6]}</div>
             <div className={s.friend}>{friendsElement[7]}</div>
         </div>
+    )
+}
+
+FriendsPage.propTypes = {
+    friendPage: PropTypes.shape({
+        friends: PropTypes.object.isRequired
+        }
     )
 }
 

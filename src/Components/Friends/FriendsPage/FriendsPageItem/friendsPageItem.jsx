@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './FriendsPageItem.module.css';
 import {NavLink} from 'react-router-dom';
-
+import PropTypes from 'prop-types'
 
 const FriendsPageItem = (props) => {
 
@@ -14,6 +14,14 @@ const FriendsPageItem = (props) => {
                 <span className={s.status}>{props.status}</span>
             </div>
         )
+
+}
+
+FriendsPageItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    avatar: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired
 
 }
 

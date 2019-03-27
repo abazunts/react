@@ -3,6 +3,7 @@ import Message from "./Message/message";
 import Dialogitem from "./Dialogitem/dialogitem";
 import s from "./mesages.module.css"
 import {Route} from "react-router-dom";
+import PropTypes from 'prop-types'
 
 
 const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
@@ -49,6 +50,16 @@ const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
             </div>
         </div>
     )
+}
+
+Messages.propTypes = {
+    dialogsPage: PropTypes.shape({
+        dialogs: PropTypes.object.isRequired,
+        messages: PropTypes.object.isRequired,
+        newMessage: PropTypes.string.isRequired
+    }),
+    onMessageChange: PropTypes.func.isRequired,
+    addMessage: PropTypes.func.isRequired,
 }
 
 export default Messages;

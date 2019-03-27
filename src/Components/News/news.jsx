@@ -4,6 +4,7 @@ import s from "../News/news.module.css";
 import Post from "../Profile/MyPost/Post/Post";
 import RFriends from "./Recomended/RFriends";
 import RandomPost from "./RandomPost/RandomPost";
+import PropTypes from 'prop-types'
 
 
 const News = (props) => {
@@ -59,6 +60,20 @@ const News = (props) => {
             </div>
         </div>
     )
+}
+
+
+News.propTypes = {
+    profilePage: PropTypes.shape({
+        posts: PropTypes.array.isRequired
+    }),
+    newsPage: PropTypes.shape({
+        news: PropTypes.array.isRequired,
+        comments: PropTypes.array.isRequired,
+        newNewsText: PropTypes.string.isRequired,
+        rFriends: PropTypes.object.isRequired,
+    })
+
 }
 
 export default News;

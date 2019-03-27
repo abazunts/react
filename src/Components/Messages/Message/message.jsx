@@ -1,5 +1,6 @@
 import React from "react";
 import s from './mesage.module.css'
+import PropTypes from 'prop-types'
 
 
 const Message = (props) => {
@@ -25,6 +26,11 @@ const Message = (props) => {
             {addMessage()}
         </div>
     )
+}
+
+Message.propTypes = {
+    check: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
 }
 
 export default Message;

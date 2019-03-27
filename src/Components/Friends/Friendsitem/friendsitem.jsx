@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './friendsitem.module.css';
 import {NavLink} from 'react-router-dom';
+import PropTypes from "prop-types";
+import FriendsPageItem from "../FriendsPage/FriendsPageItem/friendsPageItem";
 
 const FriendsItem = (props) => {
     let path = "/" + props.id;
@@ -16,4 +18,13 @@ const FriendsItem = (props) => {
         </div>
     )
 }
+
+FriendsPageItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    avatar: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired
+
+}
+
 export default FriendsItem;

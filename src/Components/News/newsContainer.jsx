@@ -26,4 +26,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const NewsContainer = connect(mapStateToProps, mapDispatchToProps )(News)
 
+
+
 export default NewsContainer;

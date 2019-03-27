@@ -1,0 +1,47 @@
+State - это объект, который появляется в момент монтирования компонента и может изменяться, обычно от пользовательских действий
+
+Props - это объект, который приходит от компонента родителя, компонент не может менять свой props, но он может отвечать за изменение props своих дочерних компонентах.
+
+Babel - это траспилятор, который преобразует код и ES6 в ES5
+
+Чистая функция - Иммьютабельность (это функция которая не изменяет данные которые к ней приходять через props, т.е. не имеет побочных эфектов). Идемпотентность (А также всегда возвращает один и тотже результат с одинаковыми входными данными.)
+
+Объект - это сложный тип данных
+
+JSX - это синтаксис JS, который похож на HTML, но не является им. Компоненты в React возвращают JSX разметку.  
+
+Babel с JSX - преобразует JSX разметку в JS
+
+Компонент - это функция, которая получает props и возвращает JSX.
+
+prototype - это объект
+
+Замыкание - это когда функция возвращает функцию
+
+DOM - это 
+vrDOM - это 
+
+Три основные метода функции: 
+		bind - 
+		call или apply - вызов функции
+
+callback - функция обратного вызова
+
+
+props
+context
+functional (presentational, dumb, stateless) component
+class (container, smart, stateful) component
+High Order Component (hoc)
+Route, NavLink, hoc withRouter
+redux: store, reducer, action, action creator, thunk, thunk creator, ducks 
+connect, mapStateToProps, mapDispatchToProps
+axios: get, put, post, delete, options, cors 
+css modules
+styled components
+class component: state, setState, lifecycle methods
+selectors, reselect 
+redux-forms
+tests
+
+

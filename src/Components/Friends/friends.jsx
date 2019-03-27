@@ -1,6 +1,7 @@
 import React from "react";
 import s from './friends.module.css';
 import FriendsItem from "./Friendsitem/friendsitem";
+import PropTypes from 'prop-types'
 
 
 const Friends = ({friendPage: {friends}}) => {
@@ -14,5 +15,12 @@ const Friends = ({friendPage: {friends}}) => {
         </div>
     )
 }
+
+Friends.propTypes = {
+    friendPage: PropTypes.shape({
+        friends: PropTypes.object.isRequired
+    })
+}
+
 
 export default Friends;

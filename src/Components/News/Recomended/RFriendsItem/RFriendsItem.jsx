@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./rfriendsitem.module.css"
+import PropTypes from 'prop-types'
 
 
 const RFriendsItem = (props) => {
@@ -38,5 +39,17 @@ const RFriendsItem = (props) => {
         </div>
     )
 }
+
+RFriendsItem.propTypes = {
+    photo: PropTypes.object.isRequired,
+    avatar: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    photoCount: PropTypes.number.isRequired,
+    videoCount: PropTypes.number.isRequired,
+    songCount: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+}
+
 
 export default RFriendsItem;

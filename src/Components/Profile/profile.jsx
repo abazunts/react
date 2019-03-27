@@ -4,22 +4,28 @@ import s from "./profile.module.css"
 import Friends from "../Friends/friends";
 import Profilesmall from "../Profilesmall/profilesmall";
 import MyPostContainer from "./MyPost/MyPostContainer";
+import PropTypes from 'prop-types'
 
 
-const Profile = (props) => {
+const Profile = ({profilePage, friendPage}) => {
     return (
 
         <div className={s.containerContent}>
             <div className={s.gridLeft}>
-                <Profilesmall profilePage={props.profilePage}/>
-                <Friends friendPage={props.friendPage}/>
+                <Profilesmall profilePage={profilePage}/>
+                <Friends friendPage={friendPage}/>
             </div>
-            <Profileinfo profilePage={props.profilePage}/>
+            <Profileinfo profilePage={profilePage}/>
             <div className={s.mypost}>
                 <MyPostContainer/>
             </div>
         </div>
     )
+}
+
+Profile.propTypes = {
+        profilePage: PropTypes.object.isRequired,
+        friendPage: PropTypes.object.isRequired,
 }
 
 export default Profile;
