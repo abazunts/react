@@ -2,9 +2,6 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 
-
-
-
 let initialState = {
     dialogs: [
         {
@@ -33,12 +30,12 @@ let initialState = {
             check: "0",
             message: "Hey dude! Wazzap!?"
         },
-        {
+       {
             id: "1",
             check: "1",
             message: "This sounded a very good reason, and Alice was quite pleased to know..."
         },
-        {
+         {
             id: "2",
             check: "1",
             message: "Ok man"
@@ -50,19 +47,25 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
-    Object.assign({}, state,)
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessage = action.newText;
-            return state
+            return {...state, newMessage: action.newText}
         case ADD_MESSAGE:
-            let newMessage = {
-                id: state.messages.length,
-                message: state.newMessage
-            }
-            state.messages.push(newMessage);
-            state.newMessage = '';
-            return state
+            
+            //Вариант 1
+            // let message = state.newMessage;
+            // let id = state.messages.length;
+            // let newMessages = [...state.messages, {id: id, check: '14', message: message}];
+            // return {...state, messages: newMessages}
+
+            //Вариант 2
+            // let newMessages = [...state.messages, {id: state.messages.length;, check: '14', message: state.newMessage}];
+            // return {...state, messages: newMessages}
+
+            //Вариант 3
+            return {...state, messages:[...state.messages, {id: state.messages.length, check: '0', message: state.newMessage}]}
+
+
         default:
             return state
     }
