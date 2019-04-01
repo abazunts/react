@@ -86,10 +86,9 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-    Object.assign({}, state,)
     switch (action.type) {
         case ADD_POST:
-            if (state.newPostText != "") {
+            if (state.newPostText !== "") {
                 let date = new Date();
 
                 let nowDay = date.getDate();
@@ -120,18 +119,15 @@ const profileReducer = (state = initialState, action) => {
                     shareCount: 0,
                     nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes
                 }
-                state.posts.push(newPost);
-                state.newPostText = '';
-                return state
+                return {...state, posts: [...state.posts,  newPost], newPostText: ""}
             } else alert("Необходимо добавить пост");
 
 
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state
+            return {...state, newPostText: action.newText}
         case ADD_LIKE:
-            state.posts[action.id].likeCount++;
-            return state
+
+            return {...state, ...state.posts[action.id].likeCount++}
         default:
             return state
 

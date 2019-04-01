@@ -30,12 +30,12 @@ let initialState = {
             check: "0",
             message: "Hey dude! Wazzap!?"
         },
-       {
+        {
             id: "1",
             check: "1",
             message: "This sounded a very good reason, and Alice was quite pleased to know..."
         },
-         {
+        {
             id: "2",
             check: "1",
             message: "Ok man"
@@ -51,7 +51,7 @@ const dialogsReducer = (state = initialState, action) => {
         case UPDATE_NEW_MESSAGE_TEXT:
             return {...state, newMessage: action.newText}
         case ADD_MESSAGE:
-            
+
             //Вариант 1
             // let message = state.newMessage;
             // let id = state.messages.length;
@@ -63,7 +63,10 @@ const dialogsReducer = (state = initialState, action) => {
             // return {...state, messages: newMessages}
 
             //Вариант 3
-            return {...state, messages:[...state.messages, {id: state.messages.length, check: '0', message: state.newMessage}]}
+            return {
+                ...state,
+                messages: [...state.messages, {id: state.messages.length, check: '0', message: state.newMessage}]
+            }
 
 
         default:

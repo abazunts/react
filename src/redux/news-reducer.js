@@ -118,10 +118,9 @@ let initialState = {
 }
 
 const newsReducer = (state = initialState, action) => {
-    Object.assign({}, state,)
     switch (action.type) {
         case ADD_NEWS:
-            if (state.newNewsText != "") {
+            if (state.newNewsText !== "") {
                 let date = new Date();
 
                 let nowDay = date.getDate();
@@ -156,18 +155,14 @@ const newsReducer = (state = initialState, action) => {
                     attachmentPhoto: "",
                     rePostTo: ""
                 }
-                state.news.push(newPost);
-                state.newNewsText = '';
-                return state
+                return {...state, news: [...state.news, newPost], newNewsText: ""}
             } else alert("Необходимо добавить пост");
 
 
         case UPDATE_NEW_NEWS_TEXT:
-            state.newNewsText = action.newText;
-            return state
+            return {...state, newNewsText: action.newText}
         case ADD_LIKE_NEWS:
-            state.news[action.id].likeCount++;
-            return state
+            return  {...state, ...state.news[action.id].likeCount++}
         default:
             return state
 
