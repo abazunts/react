@@ -8,19 +8,15 @@ import store from "./redux/redux-store";
 import {Provider} from "react-redux";
 
 
-export let rerenderEntireTree = (state) => {
+let state = store.getState();
+
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
                 <App state={state}/>
             </Provider>
         </BrowserRouter>, document.getElementById('root'));
-}
 
-rerenderEntireTree(store.getState());
 
-store.subscribe(() => {
-    rerenderEntireTree(store.getState());
-});
 
 serviceWorker.unregister();
