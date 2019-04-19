@@ -37,6 +37,12 @@ const Navbar = () => {
                 <div className={s.item}>
                     <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
                 </div>
+                <div className={s.item}></div>
+                <div className={s.item}></div>
+                <img className={s.image} src={FriendsIcon}/>
+                <div className={s.item}>
+                    <NavLink to="/users" activeClassName={s.active}>Find Users</NavLink>
+                </div>
             </div>
         </nav>
     )

@@ -14,6 +14,7 @@ const MyPost = (props) => {
                                                               profilePage={props.profilePage}
                                                               commentsMessage={props.profilePage.comments}
     />)
+
     return (
         <div className={s.test}>
             <AddPost newNewsText={props.newsPage.newNewsText} newPostText={newPostText}
@@ -23,6 +24,7 @@ const MyPost = (props) => {
                      updateNewNewsText={props.onNewsChange}
             />
             <div>
+
                 {postsElement.reverse()}
             </div>
         </div>

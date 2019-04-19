@@ -11,6 +11,7 @@ import Profile from "./Components/Profile/profile";
 import FriendsPage from "./Components/Friends/FriendsPage/friendspage";
 import NewsContainer from "./Components/News/newsContainer";
 import MessagesContainer from "./Components/Messages/messagesContainer";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 
 const App = ({state:{profilePage, friendPage}}) => {
@@ -30,6 +31,7 @@ const App = ({state:{profilePage, friendPage}}) => {
                         <Route path='/Music' render={() => <Music/>}/>
                         <Route path='/FriendsPage' render={() => <FriendsPage friendPage={friendPage}/>}/>
                         <Route path='/Settings' render={() => <Settings/>}/>
+                        <Route path='/users' render={() => <UsersContainer/>}/>
                     </div>
                     <div className="menu">
                         <Navbar/>
