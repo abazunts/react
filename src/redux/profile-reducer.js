@@ -127,7 +127,8 @@ const profileReducer = (state = initialState, action) => {
             return {...state, newPostText: action.newText}
         case ADD_LIKE:
 
-            return {...state, ...state.posts[action.id].likeCount++}
+            return {...state,
+                likeCount: {...state.posts[action.id].likeCount++}}
         default:
             return state
 

@@ -1,24 +1,30 @@
 import React from "react"
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
+import {
+    followThunkCreator,
+    setUsersThunkCreator,
+    unfollowThunkCreator
+} from "../../redux/users-reducer";
 
 let mapStateToProps = (state) => {
+
     return ({
-        users: state.usersPage.users
+        users: state.usersPage.users,
+        pageNumber: state.usersPage.pageNumber
     })
 }
 
 let mapDispatchToProps = (dispatch) => {
     return ({
         follow: (userId) => {
-            dispatch(followAC(userId))
+            dispatch(followThunkCreator(userId))
         },
         unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
+            dispatch(unfollowThunkCreator(userId))
         },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
+        setUsers: (pageNumber) => {
+            dispatch(setUsersThunkCreator(pageNumber));
         }
     })
 }
