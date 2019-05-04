@@ -1,9 +1,11 @@
 import React from "react";
 import Myphoto from '../img/myphoto.png';
+import apiService from "../DAL/samuraiAPI";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
+const SET_PROFILE_FULL = 'SN/PROFILEINFO/SET-PROFILE-FULL'
 
 let initialState = {
 
@@ -68,7 +70,7 @@ let initialState = {
 
     avatar: Myphoto,
 
-    myName: "Katherine Faber",
+    fullName: "Katherine Faber",
 
     myProfileData: {
             photos: 56,
@@ -81,7 +83,21 @@ let initialState = {
             status: 'This I have produced as a scantling of Jack’s great eloquence and the force of his\n' +
                 '                reasoning\n' +
                 '                upon such abstruse matters.'
-        }
+        },
+    userId: '1051',
+
+    contacts:{
+        facebook: "",
+        website: "",
+        vk: "",
+        twitter: "",
+        instagram: "",
+        youtube: "",
+        github: "",
+        mainLink: ""
+    }
+
+
 
 }
 
@@ -129,17 +145,24 @@ const profileReducer = (state = initialState, action) => {
 
             return {...state,
                 likeCount: {...state.posts[action.id].likeCount++}}
-        default:
+
+        case SET_PROFILE_FULL:
+            return {...state, contacts: {...state.contacts, ...action.data.contacts},  fullName: action.data.fullName}
+default:
             return state
 
     }
 }
 
-export const addPostActionCreator = () =>
-    ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const addLikeActionCreator = (id) =>
-    ({type: ADD_LIKE, id: id})
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addLikeActionCreator = (id) => ({type: ADD_LIKE, id: id})
+export const setProfileFullAC = (data) => ({type: SET_PROFILE_FULL, data})
+
+export const setProfileFullThunkCreator = (userId) => (dispatch) => {
+    apiService.setProfileFull(userId).then((data) => {
+        dispatch(setProfileFullAC(data))
+    })
+}
 
 export default profileReducer;

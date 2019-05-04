@@ -21,6 +21,12 @@ const apiService = {
 
     unfollow(userId) {
         return samuraiAPI.delete('/follow/' + userId)
+    },
+
+    setProfileFull(userId) {
+        return samuraiAPI.get('/profile/' + userId).then(response => {
+            return response.data;
+        })
     }
 
 }

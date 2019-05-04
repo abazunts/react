@@ -1,46 +1,50 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from './profileinfo.module.css';
 import Myphoto from "../../../img/myphoto.png"
 import PropTypes from 'prop-types'
 
 
-const Profileinfo = ({profilePage: {myName, myProfileData:{status, videos, reposts, comments,likes}}}) => {
+const Profileinfo = ({profilePage: {fullName, userId,aboutMe, contacts},setProfileFull}) => {
+
+    useEffect(() => {
+        setProfileFull(userId)
+    }, [])
     return (
         <div className={s.containerContent}>
             <div className={s.profile}>
                     <button className={s.settingsNav}></button>
                         <img src={Myphoto} className={s.yourPhoto}/>
-                        <span className={s.yourName}>{myName}</span>
+                        <span className={s.yourName}>{fullName}</span>
                         <button className={s.mail}></button>
                         <button className={s.follow}>Follow</button>
             </div>
             <div className={s.status}>
                 <div className={s.stat}>
-                    {status}
+                    {aboutMe}
                 </div>
                     <div   className={s.titleFollowers}>
 
                         <div className={s.titleHed}><a href='#' className={s.links}>Videos</a></div>
 
-                        <div className={s.titleIntro}>{videos}</div>
+                        <div className={s.titleIntro}>{contacts.facebook}</div>
                     </div>
                     <div className={s.titleFollowing}>
 
                         <div className={s.titleHed}><a href='#' className={s.links} >Reposts</a></div>
 
-                        <div className={s.titleIntro}>{reposts}</div>
+                        <div className={s.titleIntro}>{contacts.website}</div>
                     </div>
                     <div className={s.titleComments}>
 
                             <div className={s.titleHed}><a href='#' className={s.links} >Comments</a></div>
 
-                        <div className={s.titleIntro}>{comments}</div>
+                        <div className={s.titleIntro}>{contacts.vk}</div>
                     </div>
                     <div className={s.titleLikes}>
 
                         <div className={s.titleHed}><a href='#' className={s.links} >Likes</a></div>
 
-                        <div className={s.titleIntro}>{likes}</div>
+                        <div className={s.titleIntro}>{contacts.instagram}</div>
                     </div>
 
             </div>
