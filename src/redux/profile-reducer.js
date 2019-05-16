@@ -6,6 +6,9 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 const SET_PROFILE_FULL = 'SN/PROFILEINFO/SET-PROFILE-FULL'
+const SET_USER_ID = 'SN/PROFILEINFO/SET_USER_ID'
+const SET_STATUS = 'SN/PROFILEINFO/SET_STATUS'
+const SET_ABOUT_ME = 'SN/PROFILEINFO/SET_ABOUT_ME'
 
 let initialState = {
 
@@ -69,34 +72,43 @@ let initialState = {
     newPostText: '',
 
     avatar: Myphoto,
+    status: null,
 
-    fullName: "Katherine Faber",
 
     myProfileData: {
-            photos: 56,
-            followers: 32,
-            following: 67,
-            comments: 78,
-            likes: 2467,
-            videos: 34,
-            reposts: 15,
-            status: 'This I have produced as a scantling of Jack’s great eloquence and the force of his\n' +
-                '                reasoning\n' +
-                '                upon such abstruse matters.'
+        photos: 56,
+        followers: 32,
+        following: 67,
+        comments: 78,
+        likes: 2467,
+        videos: 34,
+        reposts: 15,
+        status: 'This I have produced as a scantling of Jack’s',
+    },
+
+    profile: {
+        aboutMe: '',
+        contacts: {
+            facebook: "",
+            website: "",
+            vk: "",
+            twitter: "",
+            instagram: "",
+            youtube: "",
+            github: "",
+            mainLink: ""
         },
-    userId: '1051',
 
-    contacts:{
-        facebook: "",
-        website: "",
-        vk: "",
-        twitter: "",
-        instagram: "",
-        youtube: "",
-        github: "",
-        mainLink: ""
+        lookingForAJob: false,
+        lookingForAJobDescription: null,
+        fullName: "Katherine Faber",
+        userId: null,
+        photos: {
+            small: null,
+            large: null
+        }
+
     }
-
 
 
 }
@@ -135,7 +147,7 @@ const profileReducer = (state = initialState, action) => {
                     shareCount: 0,
                     nowDate: nowDay + "." + nowMonth + "." + nowYear + ", " + nowHours + ":" + nowMinutes
                 }
-                return {...state, posts: [...state.posts,  newPost], newPostText: ""}
+                return {...state, posts: [...state.posts, newPost], newPostText: ""}
             } else alert("Необходимо добавить пост");
 
 
@@ -143,12 +155,33 @@ const profileReducer = (state = initialState, action) => {
             return {...state, newPostText: action.newText}
         case ADD_LIKE:
 
-            return {...state,
-                likeCount: {...state.posts[action.id].likeCount++}}
+            return {
+                ...state,
+                likeCount: {...state.posts[action.id].likeCount++}
+            }
 
         case SET_PROFILE_FULL:
-            return {...state, contacts: {...state.contacts, ...action.data.contacts},  fullName: action.data.fullName}
-default:
+            return {
+                ...state,
+                contacts: {...state.contacts, ...action.data.contacts},
+                fullName: action.data.fullName,
+                aboutMe: action.data.aboutMe,
+            }
+
+        case SET_USER_ID:
+            return {...state,
+                profile: {...state.profile, userId: action.userId, fullName: action.login}
+            }
+
+        case SET_STATUS:
+            return {...state, status: action.status}
+
+        case SET_ABOUT_ME:
+            return {
+                ...state,
+                profile:{ ...state.profile, aboutMe: action.aboutMe }
+            }
+        default:
             return state
 
     }
@@ -158,11 +191,33 @@ export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const addLikeActionCreator = (id) => ({type: ADD_LIKE, id: id})
 export const setProfileFullAC = (data) => ({type: SET_PROFILE_FULL, data})
+export const setUserId = (userId, login) => ({type: SET_USER_ID, userId, login})
+export const setStatus = (status) => ({type: SET_STATUS, status})
+export const setAboutMe = (aboutMe) => ({type: SET_ABOUT_ME, aboutMe})
+
 
 export const setProfileFullThunkCreator = (userId) => (dispatch) => {
     apiService.setProfileFull(userId).then((data) => {
         dispatch(setProfileFullAC(data))
     })
 }
+
+export const putStatus = (status) => (dispatch) => {
+    apiService.putStatus(status)
+}
+
+export const putProfile = (profile) => (dispatch) => {
+    apiService.putProfile(profile).then(response => {
+
+    })
+}
+
+
+export const getStatus = (userId) => (dispatch) => {
+    apiService.getStatus(userId).then(response => {
+        dispatch(setStatus(response))
+    })
+}
+
 
 export default profileReducer;

@@ -30,3 +30,22 @@
     color: #fff;
     font-size: 14px;
 }
+
+.signIn {
+    grid-column: 8;
+    align-self: center;
+    justify-self: left;
+    text-decoration: none;
+
+}
+
+.signIn a:hover {
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.signIn a {
+    color: black;
+    font-weight: 600;
+}

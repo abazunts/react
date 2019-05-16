@@ -2,33 +2,44 @@ import React from "react"
 import {connect} from "react-redux";
 import Users from "./Users";
 import {
-    followThunkCreator,
-    setUsersThunkCreator,
-    unfollowThunkCreator
+    follow,
+    getUsers,
+    unfollow
 } from "../../redux/users-reducer";
+import {getPageNumberSelector, getStatusSelector, getUserSelector} from "../../redux/userSelector";
+
+ class UsersContainer extends React.Component {
+     componentDidMount() {
+         debugger
+         this.props.getUsers(this.props.pageNumber)
+     }
+
+     render() {
+         return <Users { ...this.props}/>
+     }
+ }
 
 let mapStateToProps = (state) => {
-
     return ({
-        users: state.usersPage.users,
-        pageNumber: state.usersPage.pageNumber
+        users: getUserSelector(state),
+        pageNumber: getPageNumberSelector(state),
+        status: getStatusSelector(state)
     })
 }
 
 let mapDispatchToProps = (dispatch) => {
     return ({
         follow: (userId) => {
-            dispatch(followThunkCreator(userId))
+            dispatch(follow(userId))
         },
         unfollow: (userId) => {
-            dispatch(unfollowThunkCreator(userId))
+            dispatch(unfollow(userId))
         },
-        setUsers: (pageNumber) => {
-            dispatch(setUsersThunkCreator(pageNumber));
+        getUsers: (pageNumber) => {
+            dispatch(getUsers(pageNumber));
         }
     })
 }
 
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

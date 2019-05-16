@@ -1,50 +1,64 @@
-import React, {useEffect} from "react";
+import React from "react";
 import s from './profileinfo.module.css';
 import Myphoto from "../../../img/myphoto.png"
 import PropTypes from 'prop-types'
+import {Redirect} from "react-router-dom";
 
 
-const Profileinfo = ({profilePage: {fullName, userId,aboutMe, contacts},setProfileFull}) => {
 
-    useEffect(() => {
-        setProfileFull(userId)
-    }, [])
+const Profileinfo = ({profilePage: { userId, profile, contacts, myProfileData, status}, userInfo, isAuth, putProfile, setAboutMe}) => {
+
+    let onKeyUpEnter = (e) => {
+        if (e.keyCode === 13) {
+            putProfile(profile)
+        }
+    }
+
+    let onChangeAboutMe = (e) => {
+        setAboutMe(e.target.value)
+    }
+
     return (
         <div className={s.containerContent}>
+            {!isAuth && <Redirect to={'/login'}/>}
             <div className={s.profile}>
                     <button className={s.settingsNav}></button>
                         <img src={Myphoto} className={s.yourPhoto}/>
-                        <span className={s.yourName}>{fullName}</span>
+                        <span className={s.yourName}>{profile.fullName}</span>
+                        <span className={s.statusUser}>{status}</span>
                         <button className={s.mail}></button>
                         <button className={s.follow}>Follow</button>
             </div>
             <div className={s.status}>
                 <div className={s.stat}>
-                    {aboutMe}
+                    <div className={s.statusNew}>
+                        <input onChange={onChangeAboutMe} onKeyUp={onKeyUpEnter} className={s.inputStatus} type='text' value={profile.aboutMe}/>
+                    </div>
+
                 </div>
                     <div   className={s.titleFollowers}>
 
                         <div className={s.titleHed}><a href='#' className={s.links}>Videos</a></div>
 
-                        <div className={s.titleIntro}>{contacts.facebook}</div>
+                        <div className={s.titleIntro}>{profile.contacts.facebook}</div>
                     </div>
                     <div className={s.titleFollowing}>
 
                         <div className={s.titleHed}><a href='#' className={s.links} >Reposts</a></div>
 
-                        <div className={s.titleIntro}>{contacts.website}</div>
+                        <div className={s.titleIntro}>{profile.contacts.website}</div>
                     </div>
                     <div className={s.titleComments}>
 
                             <div className={s.titleHed}><a href='#' className={s.links} >Comments</a></div>
 
-                        <div className={s.titleIntro}>{contacts.vk}</div>
+                        <div className={s.titleIntro}>{profile.contacts.vk}</div>
                     </div>
                     <div className={s.titleLikes}>
 
                         <div className={s.titleHed}><a href='#' className={s.links} >Likes</a></div>
 
-                        <div className={s.titleIntro}>{contacts.instagram}</div>
+                        <div className={s.titleIntro}>{profile.contacts.instagram}</div>
                     </div>
 
             </div>

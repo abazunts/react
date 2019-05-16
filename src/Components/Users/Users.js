@@ -1,15 +1,10 @@
 import React from "react"
 import s from "./users.module.css"
 import userPhoto from "../../assets/img/userphoto.png"
+import {statuses} from "../../DAL/statuses";
 
 
-let Users = ({pageNumber, users, follow, unfollow, setUsers}) => {
-
-
-    if (users.length === 0) {
-        setUsers()
-    }
-
+let Users = ({pageNumber, users, follow, unfollow, getUsers, status}) => {
     return (
         <>
             <div className={s.content}>
@@ -27,15 +22,23 @@ let Users = ({pageNumber, users, follow, unfollow, setUsers}) => {
                             : <button className={s.button} onClick={() => {
                                 follow(u.id)
                             }}>Follow</button>}
-                        <span className={s.fullName}> {u.name}</span>
+                        <span className={s.fullName}>{u.name}</span>
                         <span className={s.location}>{"u.location.country"}, {"u.location.city"}</span>
 
 
                     </div>)
                 }
 
+
             </div>
-            <button className={s.readMore} onClick={() => setUsers(pageNumber)}>Read more</button>
+            <div>
+                {status === statuses.IN_PROGRESS &&
+                <img className={s.loadGif} src="http://www.os-one.ru/img/load/ajax-loader.gif"/>}
+
+            </div>
+
+            <button className={s.readMore} disabled={status === statuses.IN_PROGRESS} onClick={() => getUsers(pageNumber)}>Read more
+            </button>
         </>
     )
 }

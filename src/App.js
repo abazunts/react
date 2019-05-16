@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './App.css';
-import Header from "./Components/Header/header";
 import Navbar from "./Components/Navbar/navbar";
 import Footer from "./Components/Footer/footer";
 import Music from "./Components/Music/music";
@@ -12,6 +11,8 @@ import FriendsPage from "./Components/Friends/FriendsPage/friendspage";
 import NewsContainer from "./Components/News/newsContainer";
 import MessagesContainer from "./Components/Messages/messagesContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import LoginContainer from "./Components/Login/LoginContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 
 const App = ({state:{profilePage, friendPage}}) => {
@@ -19,7 +20,7 @@ const App = ({state:{profilePage, friendPage}}) => {
         <BrowserRouter>
             <div className="App">
                 <div className="header">
-                    <Header/>
+                    <HeaderContainer/>
                 </div>
                 <div className="content">
                     <div className="contentBlock">
@@ -32,6 +33,7 @@ const App = ({state:{profilePage, friendPage}}) => {
                         <Route path='/FriendsPage' render={() => <FriendsPage friendPage={friendPage}/>}/>
                         <Route path='/Settings' render={() => <Settings/>}/>
                         <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/login' render={() => <LoginContainer />}/>
                     </div>
                     <div className="menu">
                         <Navbar/>

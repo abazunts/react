@@ -40,6 +40,16 @@
     padding-left: 10px;
 }
 
+.statusUser {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: left;
+    color: #FFF;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
 .mail {
     grid-column: 4;
     grid-row: 3;
@@ -120,6 +130,24 @@
 
 .links:hover {
     color: #000;
+}
+
+.statusNew {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #f2f5f8;
+    border-radius: 5px;
+}
+
+.inputStatus {
+    grid-column: 1;
+    grid-row: 1;
+    resize: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 

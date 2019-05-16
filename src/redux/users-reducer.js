@@ -1,13 +1,18 @@
 import apiService from "../DAL/samuraiAPI";
+import {statuses} from "../DAL/statuses";
 
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_USERS = 'SET-USERS'
+const FOLLOW = 'SN/USERS/FOLLOW'
+const UNFOLLOW = 'SN/USERS/UNFOLLOW'
+const SET_USERS = 'SN/USERS/SET_USERS'
+const SET_PAGE = 'SN/USERS/SET_PAGE'
+const SET_STATUS = 'SN/USERS/SET_STATUS'
 
 
 let initialState = {
     users: [],
-    pageNumber: 1
+    pageNumber: 1,
+    status: statuses.NOT_INITIALIZED
+
 }
 
 
@@ -32,32 +37,46 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
         case SET_USERS:
-            return {...state, users: [...state.users, ...action.users], ...state.pageNumber++}
+            return {...state, users: [...action.users]}
+        case SET_STATUS:
+            return {...state, status: action.status}
+        case SET_PAGE:
+            return {
+                ...state,
+                users: [...state.users, ...action.users],
+                ...state.pageNumber++
+            }
         default:
             return state;
     }
 
 }
 
-export const followAC = (userId) => ({type: FOLLOW, userId})
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
 
-export const setUsersThunkCreator = (pageNumber) => (dispatch) => {
-    apiService.setUsers(pageNumber).then((users) => {
-        dispatch(setUsersAC(users))
+export const setFollow = (userId) => ({type: FOLLOW, userId})
+export const setUnfollow = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setPageUsers = (users) => ({type: SET_PAGE, users})
+export const setStatus = (status) => ({type: SET_STATUS, status})
+
+
+export const getUsers = (pageNumber) => (dispatch) => {
+    dispatch(setStatus(statuses.IN_PROGRESS))
+    apiService.getUsers(pageNumber).then((users) => {
+        pageNumber === 1 ? dispatch(setUsers(users)) : dispatch(setPageUsers(users))
+        dispatch(setStatus(statuses.SUCCESS))
     })
 }
 
-export const followThunkCreator = (userId) => (dispatch) => {
+export const follow = (userId) => (dispatch) => {
     apiService.follow(userId).then(data => {
-        data.resultCode === 0 ? dispatch(followAC(userId)) : alert(data.messages)
+        data.resultCode === 0 ? dispatch(setFollow(userId)) : alert(data.messages)
     })
 }
 
-export const unfollowThunkCreator = (userId) => (dispatch) => {
+export const unfollow = (userId) => (dispatch) => {
     apiService.unfollow(userId).then(() => {
-        dispatch(unfollowAC(userId))
+        dispatch(setUnfollow(userId))
     })
 }
 
