@@ -5,10 +5,10 @@ import {
     putProfile,
     setAboutMe,
     getProfileFull,
-    setEditMode,
     setEditContacts,
     setChangeFullName, setChangeDescription, setChangeChecked, setChangeAboutMe
 } from "../../../redux/profile-reducer";
+import {setEditMode} from "../../../redux/auth-reducer";
 
 
 class ProfileInfoContainer extends React.Component {
@@ -25,8 +25,9 @@ let mapStateToProps = (state) => {
     return ({
         profilePage: state.profilePage,
         userInfo: state.auth.userInfo,
-        editMode: state.profilePage.editMode,
+        //editMode: state.profilePage.editMode,
         isAuth: state.auth.isAuth,
+        editMode: state.auth.editMode,
         userId: state.auth.userInfo.userId,
     })
 

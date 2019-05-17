@@ -6,6 +6,7 @@ import {getStatus, putStatus, setUserId} from "./profile-reducer";
 const SET_AUTH = 'SN/AUTH/SET_AUTH';
 const SET_STATUS = 'SN/AUTH/SET_STATUS';
 const SET_USER_INFO = 'SN/AUTH/SET_USER_INFO';
+const SET_EDIT_MODE = 'SN/AUTH/SET_EDIT_MODE';
 
 const initialState = {
     isAuth: false,
@@ -15,6 +16,8 @@ const initialState = {
         login: null,
     },
     status: statuses.NOT_INITIALIZED,
+
+    editMode: false,
 }
 
 let AuthReducer = (state = initialState, action) => {
@@ -32,6 +35,8 @@ let AuthReducer = (state = initialState, action) => {
                     login: action.login,
                 }
             }
+        case SET_EDIT_MODE:
+            return {...state, editMode: action.editMode}
         default:
             return state
     }
@@ -40,6 +45,7 @@ let AuthReducer = (state = initialState, action) => {
 export const setAuth = (isAuth) => ({type: SET_AUTH, isAuth});
 export const setStatus = (status) => ({type: SET_STATUS, status})
 export const setUserInfo = (userId, login) => ({type: SET_USER_INFO, userId, login})
+export const setEditMode = (editMode) => ({type: SET_EDIT_MODE, editMode})
 
 
 export const getAuthMe = () => async (dispatch) => {

@@ -80,7 +80,7 @@ const apiService = {
     // },
 
     putProfile(profile) {
-        return samuraiAPI.put('profile/', {profile} ).then(response => {
+        return samuraiAPI.put('profile/', profile ).then(response => {
             return response.data;
         })
     },
