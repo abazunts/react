@@ -4,7 +4,7 @@ import {statuses} from "../../DAL/statuses";
 import {Redirect} from "react-router-dom";
 
 let Login = (props) => {
-    let {email, password, captchaUrl, captchaText, resultCode, rememberMe, message, status} = props.loginPage;
+    let {email, password, captchaUrl, captchaText, message, status, captchaIsRequired} = props.loginPage;
     let {login, changeEmail, changePassword, changeCaptcha, getCaptcha, changeRememberMe} = props;
 
     if (props.isAuth) {
@@ -40,7 +40,7 @@ let Login = (props) => {
                 <div>
                     <input type='checkbox' onChange={onChangeRememberMe}/>rememberMe
                 </div>
-                {resultCode === 10 &&
+                {captchaIsRequired &&
                 <div>
                     <div>
                         <img className={s.captcha} src={captchaUrl}/>
@@ -55,7 +55,7 @@ let Login = (props) => {
                 }
             </div>
             <div>
-                <button onClick={() => login(email, password, rememberMe, captchaText)}
+                <button onClick={() => login()}
                         disabled={status === statuses.IN_PROGRESS} className={s.buttonLogin}>Login
                 </button>
             </div>

@@ -1,12 +1,19 @@
 import React from "react"
 import Profileinfo from "./profileinfo";
 import {connect} from "react-redux";
-import {putProfile, setAboutMe, setProfileFullThunkCreator} from "../../../redux/profile-reducer";
+import {
+    putProfile,
+    setAboutMe,
+    getProfileFull,
+    setEditMode,
+    setEditContacts,
+    setChangeFullName, setChangeDescription, setChangeChecked, setChangeAboutMe
+} from "../../../redux/profile-reducer";
 
 
 class ProfileInfoContainer extends React.Component {
     componentDidMount() {
-        setProfileFullThunkCreator(this.props.userInfo.userId)
+        this.props.getProfileFull(this.props.userId)
     }
 
     render() {
@@ -18,7 +25,9 @@ let mapStateToProps = (state) => {
     return ({
         profilePage: state.profilePage,
         userInfo: state.auth.userInfo,
-        isAuth: state.auth.isAuth
+        editMode: state.profilePage.editMode,
+        isAuth: state.auth.isAuth,
+        userId: state.auth.userInfo.userId,
     })
 
 }
@@ -31,7 +40,35 @@ let mapDispatchToProps = (dispatch) => {
 
         putProfile: (profile) => {
             dispatch(putProfile(profile))
-        }
+        },
+        getProfileFull: () => {
+            dispatch(getProfileFull())
+        },
+
+        setEditMode: (editMode) => {
+            dispatch(setEditMode(editMode))
+        },
+
+        setChangeContacts: (fieldName, fieldValue) => {
+            dispatch(setEditContacts(fieldName, fieldValue))
+
+        },
+
+        setChangeFullName: (fullName) => {
+            dispatch(setChangeFullName(fullName))
+        },
+        setChangeDescription: (desc) => {
+            dispatch(setChangeDescription(desc))
+        },
+
+        setChangeChecked: (checked) => {
+            dispatch(setChangeChecked(checked))
+        },
+        setChangeAboutMe: (aboutMe) => {
+            dispatch(setChangeAboutMe(aboutMe))
+        },
+
+
 
     })
 }

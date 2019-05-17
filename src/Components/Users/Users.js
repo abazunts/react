@@ -14,7 +14,7 @@ let Users = ({pageNumber, users, follow, unfollow, getUsers, status}) => {
                     users.map(u => <div key={u.id} className={s.users}>
 
                         <img src={u.photos.small != null ? u.photos.small : userPhoto}></img>
-                        <span className={s.status}>{"u.status"}</span>
+                        <span className={s.status}>{u.status}</span>
                         {u.followed
                             ? <button className={s.button} onClick={() => {
                                 unfollow(u.id)
@@ -23,7 +23,7 @@ let Users = ({pageNumber, users, follow, unfollow, getUsers, status}) => {
                                 follow(u.id)
                             }}>Follow</button>}
                         <span className={s.fullName}>{u.name}</span>
-                        <span className={s.location}>{"u.location.country"}, {"u.location.city"}</span>
+                        <span className={s.location}></span>
 
 
                     </div>)

@@ -4,26 +4,25 @@ import {statuses} from "../DAL/statuses";
 import {getAuthMe, setAuth} from "./auth-reducer";
 import {putStatus} from "./profile-reducer";
 
-const SET_LOGIN = 'SN/LOGIN/SET_LOGIN';
+const SET_USER_ID = 'SN/LOGIN/SET_USER_ID';
 const SET_STATUS = 'SN/LOGIN/SET_STATUS';
 const SET_EMAIL = 'SN/LOGIN/SET_EMAIL';
 const SET_PASSWORD = 'SN/LOGIN/SET_PASSWORD';
 const SET_CAPTCHA_URL = 'SN/LOGIN/SET_CAPTCHA_URL';
-const SET_RESULT_CODE = 'SN/LOGIN/SET_RESULT_CODE';
+const SET_CAPTCHA_REQUIRED = 'SN/LOGIN/SET_CAPTCHA_REQUIRED';
 const SET_CAPTCHA_TEXT = 'SN/LOGIN/SET_CAPTCHA_TEXT';
 const SET_REMEMBER_ME = 'SN/LOGIN/SET_REMEMBER_ME';
 const SET_MESSAGE = 'SN/LOGIN/SET_MESSAGE';
 
-
 const initialState = {
-    email: '',
-    password: '',
+    email: 'bazunc@gmail.com',
+    password: 'asasda',
     rememberMe: false,
     captchaUrl: '',
     captchaText: '',
+    captchaIsRequired: false,
     userId: '',
     status: '',
-    resultCode: '',
     message: '',
 }
 
@@ -31,7 +30,7 @@ let loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_STATUS:
             return {...state, status: action.status}
-        case SET_LOGIN:
+        case SET_USER_ID:
             return {...state, userId: action.userId}
         case SET_EMAIL:
             return {...state, email: action.email}
@@ -39,8 +38,8 @@ let loginReducer = (state = initialState, action) => {
             return {...state, password: action.password}
         case SET_CAPTCHA_URL:
             return {...state, captchaUrl: action.captchaUrl}
-        case SET_RESULT_CODE:
-            return {...state, resultCode: action.resultCode}
+        case SET_CAPTCHA_REQUIRED:
+            return {...state, captchaIsRequired: action.captchaIsRequired}
         case SET_CAPTCHA_TEXT:
             return {...state, captchaText: action.captchaText}
         case SET_REMEMBER_ME:
@@ -52,44 +51,41 @@ let loginReducer = (state = initialState, action) => {
     }
 }
 
-export const setLogin = (userId) => ({type: SET_LOGIN, userId});
+export const setUserId = (userId) => ({type: SET_USER_ID, userId});
 export const setStatus = (status) => ({type: SET_STATUS, status})
 export const setChangeEmail = (email) => ({type: SET_EMAIL, email})
 export const setChangePassword = (password) => ({type: SET_PASSWORD, password})
 export const setCaptchaUrl = (captchaUrl) => ({type: SET_CAPTCHA_URL, captchaUrl})
-export const setResultCode = (resultCode) => ({type: SET_RESULT_CODE, resultCode})
+export const setCaptchaRequired = (captchaIsRequired) => ({type: SET_CAPTCHA_REQUIRED, captchaIsRequired})
 export const setCaptchaText = (captchaText) => ({type: SET_CAPTCHA_TEXT, captchaText})
 export const setRememberMe = (rememberMe) => ({type: SET_REMEMBER_ME, rememberMe})
-export const setMessage = (message) => ({type: SET_MESSAGE, message})
+export const setMessageError = (message) => ({type: SET_MESSAGE, message})
 
 
-export const login = (email, password, rememberMe, captchaText) => (dispatch) => {
-    dispatch(setStatus(statuses.IN_PROGRESS))
-    apiService.login(email, password, rememberMe, captchaText).then(response => {
-        switch (response.resultCode) {
-            case 0: {
-                dispatch(setResultCode(response.resultCode))
-                dispatch(setLogin(response.data.userId))
-                dispatch(setCaptchaText(''))
-                dispatch(setStatus(statuses.SUCCESS))
-                dispatch(setAuth(true))
-                dispatch(getAuthMe())
-                dispatch(putStatus('Online'))
-            }
-            case 1: {
-                dispatch(setResultCode(response.resultCode))
-                dispatch(setMessage(response.messages))
-                dispatch(setStatus(statuses.ERROR))
-            }
-            case 10: {
-                dispatch(setResultCode(response.resultCode))
-                dispatch(getCaptcha())
-                dispatch(setMessage(response.messages))
-                dispatch(setStatus(statuses.ERROR))
-            }
-        }
-    })
+export const login = () => async (dispatch, getState) => {
+    let {email, password, rememberMe, captchaText} = getState().loginPage;
+    dispatch(setStatus(statuses.IN_PROGRESS));
+    let response = await apiService.login(email, password, rememberMe, captchaText)
 
+    if (response.resultCode === 0) {
+        dispatch(setUserId(response.data.userId));
+        dispatch(setCaptchaText(''));
+        dispatch(setCaptchaRequired('false'));
+        dispatch(setStatus(statuses.SUCCESS));
+        dispatch(setAuth(true));
+        dispatch(getAuthMe());
+        dispatch(putStatus('Online'));
+    }
+    if (response.resultCode === 1) {
+        dispatch(setMessageError(response.messages));
+        dispatch(setStatus(statuses.ERROR));
+    }
+    if (response.resultCode === 10) {
+        dispatch(setCaptchaRequired('true'));
+        dispatch(getCaptcha());
+        dispatch(setMessageError(response.messages));
+        dispatch(setStatus(statuses.ERROR));
+    }
 }
 
 export const getCaptcha = () => (dispatch) => {
@@ -97,7 +93,6 @@ export const getCaptcha = () => (dispatch) => {
         dispatch(setCaptchaUrl(response.url))
     })
 }
-
 
 
 export default loginReducer;

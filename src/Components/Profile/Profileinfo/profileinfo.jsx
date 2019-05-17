@@ -1,67 +1,143 @@
 import React from "react";
 import s from './profileinfo.module.css';
-import Myphoto from "../../../img/myphoto.png"
 import PropTypes from 'prop-types'
 import {Redirect} from "react-router-dom";
 
 
+const Profileinfo = (props) => {
 
-const Profileinfo = ({profilePage: { userId, profile, contacts, myProfileData, status}, userInfo, isAuth, putProfile, setAboutMe}) => {
+    let {profilePage, editMode} = props;
+    let {isAuth, setEditMode, setChangeContacts, putProfile, setChangeFullName, setChangeDescription, setChangeChecked, setChangeAboutMe} = props;
 
-    let onKeyUpEnter = (e) => {
-        if (e.keyCode === 13) {
-            putProfile(profile)
-        }
+
+    let onChangeContacts = (e) => {
+        setChangeContacts(e.target.name, e.target.value)
+    };
+    let onChangeChecked = (e) => {
+        setChangeChecked(e.target.checked)
+    };
+    let onChangeFullName = (e) => {
+        setChangeFullName(e.target.value)
+    };
+    let onChangeDescription = (e) => {
+        setChangeDescription(e.target.value)
+    };
+
+    let onPutProfile = () => {
+        setEditMode('false')
+        putProfile()
+    }
+
+    let onClickChange = (e) => {
+        e.target.style.border = '1px solid'
     }
 
     let onChangeAboutMe = (e) => {
-        setAboutMe(e.target.value)
+        setChangeAboutMe(e.target.value)
+    }
+
+    let onKeyUpEnter = (e) => {
+        if (e.keyCode === 13) {
+            e.target.style.border = 'none'
+            putProfile()
+        }
     }
 
     return (
+
         <div className={s.containerContent}>
             {!isAuth && <Redirect to={'/login'}/>}
             <div className={s.profile}>
-                    <button className={s.settingsNav}></button>
-                        <img src={Myphoto} className={s.yourPhoto}/>
-                        <span className={s.yourName}>{profile.fullName}</span>
-                        <span className={s.statusUser}>{status}</span>
-                        <button className={s.mail}></button>
-                        <button className={s.follow}>Follow</button>
+                <button className={s.settingsNav} onClick={() => setEditMode('true')}/>
+                <img src={profilePage.photos.small} className={s.yourPhoto} alt={'Avatar'}/>
+                <span className={s.yourName}>{profilePage.fullName}</span>
+                <span className={s.statusUser}>{profilePage.status}</span>
+                <button className={s.mail}/>
+                <button className={s.follow}>Follow</button>
             </div>
-            <div className={s.status}>
-                <div className={s.stat}>
-                    <div className={s.statusNew}>
-                        <input onChange={onChangeAboutMe} onKeyUp={onKeyUpEnter} className={s.inputStatus} type='text' value={profile.aboutMe}/>
+            {!editMode ?
+                <div className={s.status}>
+                    <div className={s.stat}>
+                        <div className={s.statusNew}>
+                            <textarea className={s.aboutMe} onFocus={onClickChange} onKeyUp={onKeyUpEnter} onChange={onChangeAboutMe}
+                                      value={profilePage.aboutMe}/>
+                        </div>
+                    </div>
+                    <div className={s.titleFollowers}>
+                        <span className={s.titleHed}>facebook:</span>
+                        <span className={s.titleIntro}><a
+                            href={profilePage.contacts.facebook}>{profilePage.contacts.facebook}</a></span>
+
+                        <div>
+                            <span className={s.titleHed}>vk:</span>
+                            <span className={s.titleIntro}><a
+                                href={profilePage.contacts.vk} >{profilePage.contacts.vk}</a></span>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>email:</span>
+                            <span className={s.titleIntro}><a
+                                href={profilePage.contacts.mainLink}>{profilePage.contacts.mainLink}</a></span>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>instagram:</span>
+                            <span className={s.titleIntro}><a
+                                href={profilePage.contacts.instagram}>{profilePage.contacts.instagram}</a></span>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>looking for a Job:</span>
+                            <span className={s.titleIntro}>{profilePage.lookingForAJob ? <span>Yes</span> :
+                                <span>No</span>}</span>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>looking for a job description:</span>
+                            <span className={s.titleIntro}>{profilePage.lookingForAJobDescription}</span>
+                        </div>
                     </div>
 
                 </div>
-                    <div   className={s.titleFollowers}>
-
-                        <div className={s.titleHed}><a href='#' className={s.links}>Videos</a></div>
-
-                        <div className={s.titleIntro}>{profile.contacts.facebook}</div>
+                :
+                <div className={s.status}>
+                    <div className={s.stat}>
+                        <div className={s.statusNew}>
+                            <span>{profilePage.aboutMe}</span>
+                        </div>
                     </div>
-                    <div className={s.titleFollowing}>
+                    <div className={s.titleFollowers}>
+                        <div>
+                            <span className={s.titleHed}>fullname:</span>
+                            <input name={'fullname'} onChange={onChangeFullName} value={profilePage.fullName}/>
+                        </div>
+                        <span className={s.titleHed}>facebook:</span>
+                        <input name={'facebook'} onChange={onChangeContacts} value={profilePage.contacts.facebook}/>
 
-                        <div className={s.titleHed}><a href='#' className={s.links} >Reposts</a></div>
-
-                        <div className={s.titleIntro}>{profile.contacts.website}</div>
+                        <div>
+                            <span className={s.titleHed}>vk:</span>
+                            <input name={'vk'} onChange={onChangeContacts} value={profilePage.contacts.vk}/>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>email:</span>
+                            <input name={'mainLink'} onChange={onChangeContacts} value={profilePage.contacts.mainLink}/>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>instagram:</span>
+                            <input name={'instagram'} onChange={onChangeContacts} value={profilePage.contacts.instagram}/>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>looking for a Job:</span>
+                            <input name={'lookingForAJob'} type={'checkbox'} onChange={onChangeChecked}
+                                   checked={profilePage.lookingForAJob}/>
+                        </div>
+                        <div>
+                            <span className={s.titleHed}>looking for a job description:</span>
+                            <input name={'lookingForAJobDescription'}
+                                   value={profilePage.lookingForAJobDescription} onChange={onChangeDescription}/>
+                        </div>
+                        <button onClick={onPutProfile}>Save</button>
                     </div>
-                    <div className={s.titleComments}>
 
-                            <div className={s.titleHed}><a href='#' className={s.links} >Comments</a></div>
+                </div>
 
-                        <div className={s.titleIntro}>{profile.contacts.vk}</div>
-                    </div>
-                    <div className={s.titleLikes}>
-
-                        <div className={s.titleHed}><a href='#' className={s.links} >Likes</a></div>
-
-                        <div className={s.titleIntro}>{profile.contacts.instagram}</div>
-                    </div>
-
-            </div>
+            }
 
         </div>
     )

@@ -13,7 +13,8 @@ const initialState = {
         userId: null,
         email: null,
         login: null,
-    }
+    },
+    status: statuses.NOT_INITIALIZED,
 }
 
 let AuthReducer = (state = initialState, action) => {
@@ -41,18 +42,17 @@ export const setStatus = (status) => ({type: SET_STATUS, status})
 export const setUserInfo = (userId, login) => ({type: SET_USER_INFO, userId, login})
 
 
+export const getAuthMe = () => async (dispatch) => {
+    dispatch(setStatus(statuses.IN_PROGRESS));
+    let response = await apiService.getAuthMe();
 
-export const getAuthMe = () => (dispatch) => {
-    dispatch(setStatus(statuses.IN_PROGRESS))
-    apiService.getAuthMe().then(response => {
-        if (response.resultCode === 0) {
-            dispatch(setUserInfo(response.data.id, response.data.login))
-            dispatch(setUserId(response.data.id, response.data.login))
-            dispatch(setAuth(true))
-            dispatch(getStatus(response.data.id))
-            dispatch(setStatus(statuses.SUCCESS))
-        }
-    })
+    if (response.resultCode === 0) {
+        dispatch(setUserInfo(response.data.id, response.data.login))
+        dispatch(setUserId(response.data.id, response.data.login))
+        dispatch(setAuth(true))
+        dispatch(getStatus(response.data.id))
+        dispatch(setStatus(statuses.SUCCESS))
+    }
 }
 
 export const logOut = () => (dispatch) => {

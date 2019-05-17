@@ -11,14 +11,14 @@ const samuraiAPI = axios.create({
 
 const apiService = {
     getUsers(pageNumber) {
-        return samuraiAPI.get('/users?page='+ pageNumber).then(response => {
+        return samuraiAPI.get('/users?page=' + pageNumber).then(response => {
             return response.data.items
         })
     },
 
     follow(userId) {
         return samuraiAPI.post('/follow/' + userId).then(response => {
-           return response.data;
+            return response.data;
         })
     },
 
@@ -26,7 +26,7 @@ const apiService = {
         return samuraiAPI.delete('/follow/' + userId)
     },
 
-    setProfileFull(userId) {
+    getProfileFull(userId) {
         return samuraiAPI.get('/profile/' + userId).then(response => {
             return response.data;
         })
@@ -54,20 +54,41 @@ const apiService = {
     },
 
     putStatus(status) {
-      return samuraiAPI.put('profile/status', {status}).then(response => {
-          return response.data;
-      })
+        return samuraiAPI.put('profile/status', {status}).then(response => {
+            return response.data;
+        })
     },
+    // putProfile(profile) {
+    //     return samuraiAPI.put('profile/', {
+    //
+    //         "aboutMe": profile.aboutMe,
+    //         "contacts": {
+    //             facebook: profile.contacts.facebook,
+    //             vk: profile.contacts.vk,
+    //             instagram: profile.contacts.instagram,
+    //             mainLink: profile.contacts.mainLink
+    //         },
+    //         "lookingForAJob": profile.lookingForAJob,
+    //         "lookingForAJobDescription": profile.lookingForAJobDescription,
+    //         "fullName": profile.fullName,
+    //         "userId": profile.userId,
+    //
+    //
+    //     }).then(response => {
+    //         return response.data;
+    //     })
+    // },
+
     putProfile(profile) {
-      return samuraiAPI.put('profile', {profile}).then(response => {
-          return response.data;
-      })
+        return samuraiAPI.put('profile/', {profile} ).then(response => {
+            return response.data;
+        })
     },
 
     getStatus(userId) {
-      return samuraiAPI.get('profile/status/'+userId).then(response => {
-          return response.data;
-      })
+        return samuraiAPI.get('profile/status/' + userId).then(response => {
+            return response.data;
+        })
     }
 
 }

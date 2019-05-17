@@ -29,8 +29,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return ({
-        login: (email, password, rememberMe, captchaText) => {
-            dispatch(login(email, password, rememberMe, captchaText))
+        login: () => {
+            dispatch(login())
         },
 
         changeEmail: (email) => {

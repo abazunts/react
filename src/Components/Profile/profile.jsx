@@ -8,16 +8,17 @@ import ProfileInfoContainer from "./Profileinfo/ProfileInfoContainer";
 
 
 const Profile = ({profilePage, friendPage}) => {
+
     return (
 
         <div className={s.containerContent}>
             <div className={s.gridLeft}>
-                <Profilesmall profilePage={profilePage}/>
-                <Friends friendPage={friendPage}/>
+                {/*<Profilesmall profilePage={profilePage}/>*/}
+                {/*<Friends friendPage={friendPage}/>*/}
             </div>
             <ProfileInfoContainer/>
             <div className={s.mypost}>
-                <MyPostContainer/>
+                {/*<MyPostContainer/>*/}
             </div>
         </div>
     )
