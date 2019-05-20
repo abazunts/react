@@ -24,7 +24,7 @@ const Profileinfo = (props) => {
     };
 
     let onPutProfile = () => {
-        setEditMode('false')
+        setEditMode(false)
         putProfile()
     }
 

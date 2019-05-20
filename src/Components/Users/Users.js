@@ -4,7 +4,29 @@ import userPhoto from "../../assets/img/userphoto.png"
 import {statuses} from "../../DAL/statuses";
 
 
-let Users = ({pageNumber, users, follow, unfollow, getUsers, status}) => {
+let Users = ({
+                 pageNumber, users, follow, unfollow,
+                 getUsers, status, pageSize, totalCount,
+                 currentPage, setPageNumber, setPageSize
+             }) => {
+
+    let pageCount = Math.ceil(totalCount / pageSize);
+
+    let pages = [];
+
+    for (let i = 1; i <= pageCount; i++) {
+        pages.push(i);
+    }
+
+    let onClickPageNumber = (p) => {
+        setPageNumber(p);
+        getUsers()
+    };
+
+    let onChangeSelect = (e) => {
+        setPageSize(e.target.value)
+        getUsers()
+    }
     return (
         <>
             <div className={s.content}>
@@ -36,9 +58,22 @@ let Users = ({pageNumber, users, follow, unfollow, getUsers, status}) => {
                 <img className={s.loadGif} src="http://www.os-one.ru/img/load/ajax-loader.gif"/>}
 
             </div>
+            <div>
+                <span>Select user count:</span>
+                <select onChange={onChangeSelect}>
+                    <option value='10'>10</option>
+                    <option value='20'>20</option>
+                    <option value='50'>50</option>
+                    <option value='100'>100</option>
+                </select>
 
-            <button className={s.readMore} disabled={status === statuses.IN_PROGRESS} onClick={() => getUsers(pageNumber)}>Read more
-            </button>
+            </div>
+            <div className={s.navigationPage}>
+                {pages.map((p) => <span onClick={() => onClickPageNumber(p)}
+                                        className={currentPage === p ? s.paginationActive : s.pagination}>{p}</span>)}
+            </div>
+
+
         </>
     )
 }

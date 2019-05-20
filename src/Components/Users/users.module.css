@@ -93,3 +93,30 @@
     width: 150px;
 }
 
+.paginationActive {
+    cursor: pointer;
+    border: 1px solid;
+    background: #65abd0;
+    color: #fff;
+    padding: 5px;
+}
+
+.pagination {
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+    padding: 5px;
+    margin: 2px;
+}
+
+.pagination:hover{
+    cursor: pointer;
+    background: #65abd0;
+    color: #000;
+    padding: 5px;
+}
+
+.navigationPage {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

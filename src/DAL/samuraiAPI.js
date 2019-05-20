@@ -10,9 +10,9 @@ const samuraiAPI = axios.create({
 })
 
 const apiService = {
-    getUsers(pageNumber) {
-        return samuraiAPI.get('/users?page=' + pageNumber).then(response => {
-            return response.data.items
+    getUsers(pageSize, pageNumber) {
+        return samuraiAPI.get(`/users?page=${pageNumber}&count=${pageSize}`).then(response => {
+            return response.data
         })
     },
 
@@ -58,26 +58,7 @@ const apiService = {
             return response.data;
         })
     },
-    // putProfile(profile) {
-    //     return samuraiAPI.put('profile/', {
-    //
-    //         "aboutMe": profile.aboutMe,
-    //         "contacts": {
-    //             facebook: profile.contacts.facebook,
-    //             vk: profile.contacts.vk,
-    //             instagram: profile.contacts.instagram,
-    //             mainLink: profile.contacts.mainLink
-    //         },
-    //         "lookingForAJob": profile.lookingForAJob,
-    //         "lookingForAJobDescription": profile.lookingForAJobDescription,
-    //         "fullName": profile.fullName,
-    //         "userId": profile.userId,
-    //
-    //
-    //     }).then(response => {
-    //         return response.data;
-    //     })
-    // },
+
 
     putProfile(profile) {
         return samuraiAPI.put('profile/', profile ).then(response => {
