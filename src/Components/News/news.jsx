@@ -8,6 +8,9 @@ import PropTypes from 'prop-types'
 
 
 const News = (props) => {
+
+    let {setLikeNews, setNews, setNewNewsText} = props;
+
     let profilePage = props.profilePage;
     let newsPage = props.newsPage;
     let newsElement = newsPage.news.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
@@ -20,7 +23,7 @@ const News = (props) => {
                                                    news={newsPage.news}
                                                    commentsMessage={newsPage.comments}
                                                    addLikePost={props.addLikePost}
-                                                   addLikeNews={props.addLikeNews}
+                                                   addLikeNews={setLikeNews}
                                                    profilePage={props.profilePage}
     />)
 
@@ -35,7 +38,7 @@ const News = (props) => {
                                                        news={newsPage.news}
                                                        commentsMessage={newsPage.comments}
                                                        addLikePost={props.addLikePost}
-                                                       addLikeNews={props.addLikeNews}
+                                                       addLikeNews={setLikeNews}
                                                        profilePage={props.profilePage}
     />)
 
@@ -45,8 +48,8 @@ const News = (props) => {
         <div className={s.news}>
             <div className={s.addPost}>
                 <AddPost newNewsText={props.newsPage.newNewsText}
-                         addNews={props.addNews}
-                         updateNewNewsText={props.onNewsChange}
+                         addNews={setNews}
+                         updateNewNewsText={setNewNewsText}
                          newsPage={newsPage}
                 />
             </div>

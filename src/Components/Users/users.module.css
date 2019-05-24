@@ -59,6 +59,7 @@
     font-size: 16px;
 }
 
+
 .location {
     grid-column: 2;
     grid-row: 2;
@@ -89,9 +90,7 @@
     margin-bottom: 10px;
 }
 
-.loadGif {
-    width: 150px;
-}
+
 
 .paginationActive {
     cursor: pointer;
@@ -119,4 +118,9 @@
 .navigationPage {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.preloader {
+    display: block;
+    justify-self:  center;
 }

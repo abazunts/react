@@ -4,16 +4,18 @@ import PropTypes from 'prop-types'
 import {Redirect} from "react-router-dom";
 
 
+
 const Profileinfo = (props) => {
 
-    let {profilePage, editMode} = props;
-    let {isAuth, setEditMode, setChangeContacts, putProfile, setChangeFullName, setChangeDescription, setChangeChecked, setChangeAboutMe} = props;
-
+    let {editMode, profilePage, isOwner} = props;
+    let {status, profile} = profilePage;
+    let {putPhotos, isAuth, setEditMode, setEditContacts, putProfile, setChangeFullName, setChangeDescription, setChangeChecked, setChangeAboutMe} = props;
 
     let onChangeContacts = (e) => {
-        setChangeContacts(e.target.name, e.target.value)
+        setEditContacts(e.target.name, e.target.value)
     };
     let onChangeChecked = (e) => {
+
         setChangeChecked(e.target.checked)
     };
     let onChangeFullName = (e) => {
@@ -26,6 +28,10 @@ const Profileinfo = (props) => {
     let onPutProfile = () => {
         setEditMode(false)
         putProfile()
+        let formData = new FormData();
+        let imagefile = document.querySelector('#photo');
+        formData.append('image', imagefile.files[0]);
+        putPhotos(formData)
     }
 
     let onClickChange = (e) => {
@@ -41,56 +47,58 @@ const Profileinfo = (props) => {
             e.target.style.border = 'none'
             putProfile()
         }
-    }
+    };
+
+
 
     return (
 
         <div className={s.containerContent}>
             {!isAuth && <Redirect to={'/login'}/>}
             <div className={s.profile}>
-                <button className={s.settingsNav} onClick={() => setEditMode('true')}/>
-                <img src={profilePage.photos.small} className={s.yourPhoto} alt={'Avatar'}/>
-                <span className={s.yourName}>{profilePage.fullName}</span>
-                <span className={s.statusUser}>{profilePage.status}</span>
+                {
+                    isOwner && <button className={s.settingsNav} onClick={() => setEditMode(true)}/>
+                }
+                <img src={profile.photos.small} className={s.yourPhoto} alt={'Avatar'}/>
+                <span className={s.yourName}>{profile.fullName}</span>
+                <span className={s.statusUser}>{status}</span>
                 <button className={s.mail}/>
                 <button className={s.follow}>Follow</button>
             </div>
             {!editMode ?
                 <div className={s.status}>
                     <div className={s.stat}>
+                        <div>
+                            <span>About me:</span>
+                        </div>
                         <div className={s.statusNew}>
                             <textarea className={s.aboutMe} onFocus={onClickChange} onKeyUp={onKeyUpEnter} onChange={onChangeAboutMe}
-                                      value={profilePage.aboutMe}/>
+                                      value={profile.aboutMe}/>
                         </div>
                     </div>
                     <div className={s.titleFollowers}>
                         <span className={s.titleHed}>facebook:</span>
-                        <span className={s.titleIntro}><a
-                            href={profilePage.contacts.facebook}>{profilePage.contacts.facebook}</a></span>
+                        <span className={s.titleIntro}><a target={'_blank'}
+                            href={profile.contacts.facebook}>{profile.contacts.facebook}</a></span>
 
                         <div>
                             <span className={s.titleHed}>vk:</span>
-                            <span className={s.titleIntro}><a
-                                href={profilePage.contacts.vk} >{profilePage.contacts.vk}</a></span>
-                        </div>
-                        <div>
-                            <span className={s.titleHed}>email:</span>
-                            <span className={s.titleIntro}><a
-                                href={profilePage.contacts.mainLink}>{profilePage.contacts.mainLink}</a></span>
+                            <span className={s.titleIntro}><a  target={'_blank'}
+                                href={profile.contacts.vk} >{profile.contacts.vk}</a></span>
                         </div>
                         <div>
                             <span className={s.titleHed}>instagram:</span>
-                            <span className={s.titleIntro}><a
-                                href={profilePage.contacts.instagram}>{profilePage.contacts.instagram}</a></span>
+                            <span className={s.titleIntro}><a  target={'_blank'}
+                                href={profile.contacts.instagram}>{profile.contacts.instagram}</a></span>
                         </div>
                         <div>
                             <span className={s.titleHed}>looking for a Job:</span>
-                            <span className={s.titleIntro}>{profilePage.lookingForAJob ? <span>Yes</span> :
+                            <span className={s.titleIntro}>{profile.lookingForAJob ? <span>Yes</span> :
                                 <span>No</span>}</span>
                         </div>
                         <div>
                             <span className={s.titleHed}>looking for a job description:</span>
-                            <span className={s.titleIntro}>{profilePage.lookingForAJobDescription}</span>
+                            <span className={s.titleIntro}>{profile.lookingForAJobDescription}</span>
                         </div>
                     </div>
 
@@ -99,39 +107,46 @@ const Profileinfo = (props) => {
                 <div className={s.status}>
                     <div className={s.stat}>
                         <div className={s.statusNew}>
-                            <span>{profilePage.aboutMe}</span>
+                            <span>{profile.aboutMe}</span>
                         </div>
                     </div>
                     <div className={s.titleFollowers}>
                         <div>
                             <span className={s.titleHed}>fullname:</span>
-                            <input name={'fullname'} onChange={onChangeFullName} value={profilePage.fullName}/>
+                            <input name={'fullname'} onChange={onChangeFullName} value={profile.fullName}/>
                         </div>
                         <span className={s.titleHed}>facebook:</span>
-                        <input name={'facebook'} onChange={onChangeContacts} value={profilePage.contacts.facebook}/>
+                        <input name={'facebook'} onChange={onChangeContacts} value={profile.contacts.facebook}/>
 
                         <div>
                             <span className={s.titleHed}>vk:</span>
-                            <input name={'vk'} onChange={onChangeContacts} value={profilePage.contacts.vk}/>
+                            <input name={'vk'} onChange={onChangeContacts} value={profile.contacts.vk}/>
                         </div>
                         <div>
                             <span className={s.titleHed}>email:</span>
-                            <input name={'mainLink'} onChange={onChangeContacts} value={profilePage.contacts.mainLink}/>
+                            <input name={'mainLink'} onChange={onChangeContacts} value={profile.contacts.mainLink}/>
                         </div>
                         <div>
                             <span className={s.titleHed}>instagram:</span>
-                            <input name={'instagram'} onChange={onChangeContacts} value={profilePage.contacts.instagram}/>
+                            <input name={'instagram'} onChange={onChangeContacts} value={profile.contacts.instagram}/>
                         </div>
                         <div>
                             <span className={s.titleHed}>looking for a Job:</span>
                             <input name={'lookingForAJob'} type={'checkbox'} onChange={onChangeChecked}
-                                   checked={profilePage.lookingForAJob}/>
+                                   checked={profile.lookingForAJob}/>
                         </div>
                         <div>
                             <span className={s.titleHed}>looking for a job description:</span>
                             <input name={'lookingForAJobDescription'}
-                                   value={profilePage.lookingForAJobDescription} onChange={onChangeDescription}/>
+                                   value={profile.lookingForAJobDescription} onChange={onChangeDescription}/>
                         </div>
+                        <div>
+                            <div>
+                                <span>Load your photos</span>
+                            </div>
+                            <input type={'file'} id={'photo'}/>
+                        </div>
+
                         <button onClick={onPutProfile}>Save</button>
                     </div>
 

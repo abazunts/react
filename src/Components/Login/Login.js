@@ -4,25 +4,25 @@ import {statuses} from "../../DAL/statuses";
 import {Redirect} from "react-router-dom";
 
 let Login = (props) => {
-    let {email, password, captchaUrl, captchaText, message, status, captchaIsRequired} = props.loginPage;
-    let {login, changeEmail, changePassword, changeCaptcha, getCaptcha, changeRememberMe} = props;
+    let {email, password, captchaUrl, captchaText, message, status, captchaIsRequired, userId} = props.loginPage;
+    let {login,setChangeEmail,setChangePassword,setCaptchaText,setRememberMe, getCaptcha} = props;
 
     if (props.isAuth) {
-        return <Redirect to='/profile'/>
+        return <Redirect to={'/profile'} />
     }
     let onChangeEmail = (e) => {
-        changeEmail(e.target.value)
+        setChangeEmail(e.target.value)
     }
     let onChangePassword = (e) => {
-        changePassword(e.target.value)
+        setChangePassword(e.target.value)
     }
 
     let onChangeCaptcha = (e) => {
-        changeCaptcha(e.target.value)
+        setCaptchaText(e.target.value)
     }
 
     let onChangeRememberMe = (e) => {
-        changeRememberMe(e.target.checked)
+        setRememberMe(e.target.checked)
     }
 
 

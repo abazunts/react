@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 
-const samuraiAPI = axios.create({
+export const samuraiAPI = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
     headers: {
@@ -70,6 +70,14 @@ const apiService = {
         return samuraiAPI.get('profile/status/' + userId).then(response => {
             return response.data;
         })
+    },
+
+    putPhotos(formData) {
+        return samuraiAPI.put('profile/photo/', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => console.log(response.data))
     }
 
 }

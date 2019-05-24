@@ -11,47 +11,12 @@ import {
 import {loginSelector} from "../../redux/loginSelector";
 
 
-class LoginContainer extends React.Component {
-    componentDidMount() {
-
-    }
-
-    render() {
-        return <Login {...this.props}/>
-    }
-}
-
 let mapStateToProps = (state) => {
     return ({
         loginPage: loginSelector(state),
         isAuth: state.auth.isAuth
     })
-}
-let mapDispatchToProps = (dispatch) => {
-    return ({
-        login: () => {
-            dispatch(login())
-        },
-
-        changeEmail: (email) => {
-            dispatch(setChangeEmail(email))
-        },
-
-        changePassword: (password) => {
-            dispatch(setChangePassword(password))
-        },
-        changeCaptcha: (captcha) => {
-            dispatch(setCaptchaText(captcha))
-        },
-
-        changeRememberMe: (remember) => {
-            dispatch(setRememberMe(remember))
-        },
-        getCaptcha: () => {
-            dispatch(getCaptcha())
-        },
-    })
-}
+};
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
+export default connect(mapStateToProps, {login,setChangeEmail,setChangePassword,setCaptchaText,setRememberMe, getCaptcha })(Login);

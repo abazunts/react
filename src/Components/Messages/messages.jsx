@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 
 
 const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
+    let {setMessage, setNewMessageText} = props;
     let dialogsElement = dialogs.map(d => <Dialogitem name={d.name} id={d.id} status={d.status}
                                                                         avatar={d.avatar}/>)
 
@@ -17,11 +18,11 @@ const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
 
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.onMessageChange(text);
+        setNewMessageText(text);
     }
 
     let addMessage = () => {
-        props.addMessage();
+        setMessage();
     }
 
     let onKeyPressTextMessage = (event) => {
@@ -44,7 +45,7 @@ const Messages = ({dialogsPage: {dialogs, messages, newMessage}, ...props}) => {
                 <div className={s.newMessage}>
                 <textarea onKeyUp={onKeyPressTextMessage} onChange={onMessageChange}
                           value={newMessage}
-                          className={s.textarea} placeholder='Enter you message...'></textarea>
+                          className={s.textarea} placeholder='Enter you message...'/>
                     <button onClick={addMessage} className={s.button}>Send</button>
                 </div>
             </div>

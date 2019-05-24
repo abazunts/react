@@ -4,11 +4,12 @@ import s from "./mypost.module.css";
 import AddPost from "./AddPost";
 
 const MyPost = (props) => {
+
     let newPostText=props.profilePage.newPostText;
     let postsElement = props.profilePage.posts.map(p => <Post message={p.message} id={p.id} nowDate={p.nowDate}
                                                               like={p.likeCount} comments={p.commentsCount}
                                                               share={p.shareCount} myName={props.profilePage.myName}
-                                                              avatar={props.profilePage.avatar}
+                                                              avatar={props.profilePage.profile.photos.small}
                                                               addLikePost={props.addLikePost}
                                                               addLikeNews={props.addLikeNews}
                                                               profilePage={props.profilePage}

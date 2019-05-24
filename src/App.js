@@ -13,6 +13,9 @@ import MessagesContainer from "./Components/Messages/messagesContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import LoginContainer from "./Components/Login/LoginContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
+import UserContainer from "./Components/User/UserContainer";
+
 
 
 const App = ({state:{profilePage, friendPage}}) => {
@@ -24,10 +27,10 @@ const App = ({state:{profilePage, friendPage}}) => {
                 </div>
                 <div className="content">
                     <div className="contentBlock">
+                        <Route exact path='/user/:userId' render={() => <ProfileContainer/>}/>
                         <Route exact path='/'
                                render={() => <NewsContainer/>}/>
-                        <Route path='/Profile' render={() => <Profile profilePage={profilePage}
-                                                                      friendPage={friendPage}/>}/>
+                        <Route path='/profile' render={() => <ProfileContainer/>}/>
                         <Route path='/Messages' render={() => <MessagesContainer/>}/>
                         <Route path='/Music' render={() => <Music/>}/>
                         <Route path='/FriendsPage' render={() => <FriendsPage friendPage={friendPage}/>}/>

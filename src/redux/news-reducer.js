@@ -4,9 +4,9 @@ import pPhoto from '../img/photo.png';
 import rFriendsAvatar from "../img/rfriendsavatar.png";
 import rFriendsPhoto from '../img/rfriendsphoto.png';
 
-const ADD_NEWS = 'ADD-NEWS';
-const UPDATE_NEW_NEWS_TEXT = 'UPDATE-NEW-NEWS-TEXT';
-const ADD_LIKE_NEWS = 'ADD-LIKE-NEWS';
+const SET_NEWS = 'SN/NEWS/SET_NEWS';
+const SET_NEW_NEWS_TEXT = 'SN/NEWS/SET_NEW_NEWS_TEXT';
+const SET_LIKE_NEWS = 'SN/NEWS/SET_LIKE_NEWS';
 
 let initialState = {
     news: [
@@ -119,7 +119,7 @@ let initialState = {
 
 const newsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEWS:
+        case SET_NEWS:
             if (state.newNewsText !== "") {
                 let date = new Date();
 
@@ -159,9 +159,9 @@ const newsReducer = (state = initialState, action) => {
             } else alert("Необходимо добавить пост");
 
 
-        case UPDATE_NEW_NEWS_TEXT:
+        case SET_NEW_NEWS_TEXT:
             return {...state, newNewsText: action.newText}
-        case ADD_LIKE_NEWS:
+        case SET_LIKE_NEWS:
             return  {...state, ...state.news[action.id].likeCount++}
         default:
             return state
@@ -169,12 +169,9 @@ const newsReducer = (state = initialState, action) => {
     }
 }
 
-export const addNewsActionCreator = () =>
-    ({type: ADD_NEWS})
-export const updateNewNewsTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_NEWS_TEXT, newText: text})
-export const addLikeNewsActionCreator = (id) =>
-    ({type: ADD_LIKE_NEWS, id: id})
+export const setNews = () => ({type: SET_NEWS})
+export const setNewNewsText = (text) => ({type: SET_NEW_NEWS_TEXT, newText: text})
+export const setLikeNews = (id) => ({type: SET_LIKE_NEWS, id: id})
 
 
 export default newsReducer;

@@ -6,6 +6,7 @@
     justify-self: right;
     height: auto;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .profileSmall {
@@ -27,12 +28,11 @@
 
 .myPhoto {
     grid-column: 1/4;
-    background: url("../../img/myphoto.png") no-repeat center top;
     width: 180px;
     height: 180px;
-    margin: 10px 25px 10px;
     justify-self: center;
     border-radius: 10px;
+    border: none;
     background-size: cover;
 }
 

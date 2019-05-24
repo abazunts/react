@@ -1,6 +1,6 @@
 import React from "react";
 import News from "./news";
-import {addLikeNewsActionCreator, addNewsActionCreator, updateNewNewsTextActionCreator} from "../../redux/news-reducer";
+import {setLikeNews, setNews, setNewNewsText} from "../../redux/news-reducer";
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -8,23 +8,9 @@ const mapStateToProps = (state) => {
         profilePage: state.profilePage,
         newsPage: state.newsPage
     }
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addLikeNews: (id) => {
-            dispatch(addLikeNewsActionCreator(id))
-        },
-        addNews: () => {
-            dispatch(addNewsActionCreator())
-        },
-        onNewsChange: (text) => {
-            dispatch(updateNewNewsTextActionCreator(text))
-        }
-    }
-}
-
-const NewsContainer = connect(mapStateToProps, mapDispatchToProps )(News)
+const NewsContainer = connect(mapStateToProps, {setLikeNews, setNews, setNewNewsText} )(News)
 
 
 
