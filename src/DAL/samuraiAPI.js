@@ -33,7 +33,7 @@ const apiService = {
     },
 
     login(email, password, rememberMe, captcha) {
-        return samuraiAPI.post('auth/login', {email, password, rememberMe, captcha}).then(response => {
+        return samuraiAPI.post('auth/login', {email, password, captcha, rememberMe}).then(response => {
             return response.data;
         })
     },
